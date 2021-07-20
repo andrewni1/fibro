@@ -1,32 +1,14 @@
-import Link from 'next/link'
+import React from 'react';
 
 export default function Navbar() {
     return (
-        <>
-            <div className="navbar">
-                <ul>
-                <li>
-                    <Link href="/">
-                    <a>Home</a>
-                    </Link>
-                </li>
-                <li>
-                    <Link href="/inventory">
-                    <a>Inventory</a>
-                    </Link>
-                </li>
-                <li>
-                    <Link href="/bots">
-                    <a>Bots</a>
-                    </Link>
-                </li>
-                <li>
-                    <Link href="/expenses">
-                    <a>Expenses</a>
-                    </Link>
-                </li>
-                </ul>
+        <div className="header">
+            <div className="header-menu">
+                <a className="menu-link" href="/">Home</a>
+                <a className="menu-link" href="/features">Features</a>
+                <a className="menu-link" href="/about">About</a>
+                <a className="menu-link" href="/faq">FAQ</a>
             </div>
-        </>
+        </div>
     )
 }
