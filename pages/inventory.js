@@ -1,27 +1,45 @@
-import React, { useState } from "react"
+import { useState, useEffect } from 'react';
 import firebase from "../firebase/clientApp";
 import { useAuthState } from "react-firebase-hooks/auth"
 import Auth from '../components/Auth'
-import { useCollection } from "react-firebase-hooks/firestore"
 
 export default function Inventory () {
     const [user, loading, error] = useAuthState(firebase.auth())
-    const db = firebase.firestore();
 
-    const [items, itemsLoading, itemsError] = useCollection(
-        firebase.firestore().collection("items"),
-        {}
-    )
+    const [items, setItems] = useState([])
 
-    if (!itemsLoading && items) {
-        items.docs.map((doc) => console.log(doc.data()));
-    }
+    useEffect(() => {
+        firebase.firestore()
+          .collection('items')
+          .get()
+          .then(snap => {
+            const items = snap.docs.map(doc => ({
+              id: doc.id,
+              ...doc.data()
+            }));
+            setItems(items);
+          });
+    }, []);
 
     if (user) {
         return (
-            <>
-                <h1>Inventory Page</h1>
-            </>
+            <div>
+                <div>
+                    <h1>Inventory Page</h1>
+                </div>
+                <div> 
+                    {
+                        items.map(item => {
+                            return (
+                                <div key={item.id}>
+                                    <h2>{item.itemName}</h2>
+                                </div>
+                            )
+                        })
+                    }
+                </div>
+            </div>
+            
         )
     }
     else return (
