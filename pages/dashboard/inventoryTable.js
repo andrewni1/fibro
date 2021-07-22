@@ -1,7 +1,7 @@
 import React from "react";
-import MaterialTable, { MTableToolbar } from 'material-table';
+import MaterialTable from 'material-table';
 import { useState, useEffect } from 'react';
-import firebase from "../firebase/clientApp";
+import firebase from "../../firebase/clientApp";
 import { useAuthState } from "react-firebase-hooks/auth"
 import AddBox from '@material-ui/icons/AddBox';
 import ArrowUpward from '@material-ui/icons/ArrowUpward';

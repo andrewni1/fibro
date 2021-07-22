@@ -1,8 +1,6 @@
 * {
   box-sizing: border-box;
   font-family: 'Inter', sans-serif;
-  background-color: #151724;
-  color: #FFFFFF;
 }
 
 body {
@@ -10,6 +8,7 @@ body {
   font-size: 16px;
   font-weight: 500;
   line-height: 1.43;
+
 }
 
 .nav-middle {
@@ -22,6 +21,8 @@ body {
   text-decoration: none;
   align-items: center;
   justify-content: center;
+  word-spacing: 16px;
+  color: #FFFFFF;
 }
 
 .nav-left {
@@ -36,6 +37,7 @@ body {
   line-height: 22.88px;
   height: 35px;
   width: 176px;
+  color: #FFFFFF;
 }
 
 .nav-right {
@@ -54,6 +56,7 @@ body {
 }
 
 .nav {
+  color: #FFFFFF;
   padding-top: 2.5rem;
   padding-bottom: 2.5rem;
 }
@@ -120,6 +123,41 @@ body {
   line-height: 28px;
   font-weight: 500;
   font-size: 22px;
+}
+
+.home {
+  background-color: #151724;
+}
+
+.feature-one {
+  padding-top: 250px;
+}
+
+.feature-two {
+  padding-top: 200px;
+}
+
+.feature-number {
+  color: #6B9FFF;
+  font-size: 16.5px;
+  font-weight: 600;
+  line-height: 28px;
+}
+
+.feature-title {
+  color: #FFFFFF;
+  font-size: 33px;
+  font-weight: 700;
+  line-height: 40px;
+  margin-bottom: 20px;
+}
+
+.feature-desc {
+  color: #C3CAEA;
+  margin-bottom: 40px;
+  line-height: 28px;
+  font-weight: 500;
+  font-size: 21px;
 }
 
 .inventory-container {
