@@ -19,8 +19,6 @@ import SaveAlt from '@material-ui/icons/SaveAlt';
 import Search from '@material-ui/icons/Search';
 import ViewColumn from '@material-ui/icons/ViewColumn';
 import { forwardRef } from 'react';
-import { Button } from "@material-ui/core";
-import { fontSize } from "@material-ui/system";
 
 export default function Table(props) {
     const [user, loading, error] = useAuthState(firebase.auth())
@@ -162,6 +160,15 @@ export default function Table(props) {
             paddingRight: '15px',
             paddingLeft: '15px',
         }}
+        options={{
+            headerStyle: {
+                backgroundColor: 'transparent',
+                fontSize: 18,
+                color: '#151724'
+            },
+            actionsColumnIndex: -1,
+            paging: false,
+        }}
         editable={{
             onRowAdd: newData =>
                 new Promise((resolve, reject) => {
@@ -201,15 +208,7 @@ export default function Table(props) {
     
                     resolve();
                 }, 1000)
-                }),
-        }}
-        options={{
-            headerStyle: {
-                backgroundColor: 'transparent',
-                fontSize: 18,
-                color: '#151724'
-            },
-            actionsColumnIndex: -1
+                }), 
         }}
       />
     )
