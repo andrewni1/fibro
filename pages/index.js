@@ -3,7 +3,7 @@ import Grid from '@material-ui/core/Grid'
 import Navbar from "../components/navbar"
 import Footer from "../components/footer"
 import Button from '@material-ui/core/Button'
-
+import Paper from '@material-ui/core/Paper'
 
 export default function Home() {
     return(
@@ -27,6 +27,11 @@ export default function Home() {
                                 }}>
                                 Sign Up
                             </Button>
+                        </Grid>
+                        <Grid>
+                            <Paper variant="outlined">
+                                <img src="https://www.visme.co/wp-content/themes/visme/images/type-of-graphs-visme.png" />
+                            </Paper>
                         </Grid>
                     </Grid>
                     <div className="feature-one">

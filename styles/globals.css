@@ -8,7 +8,7 @@ body {
   font-size: 16px;
   font-weight: 500;
   line-height: 1.43;
-
+  
 }
 
 .nav-middle {
@@ -164,4 +164,10 @@ body {
   margin-left: 26.1%;
   margin-bottom: 2.5%;
   margin-top: 2.5%;
+}
+
+.header {
+  background-color: #212238;
+  padding-top: 20px;
+  padding-right: 10px;
 }
