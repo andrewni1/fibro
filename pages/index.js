@@ -45,7 +45,7 @@ export default function Home() {
                                 <br />
                                 <a></a>
                                 <br />
-                                <a className="feature-desc">With the use of database, all your entries will be saved for the next time you log in.</a>
+                                <a className="feature-desc">With the use of a database, all your entries will be saved for the next time you log in.</a>
                             </Grid>
                         </Grid>
                     </div>

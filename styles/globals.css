@@ -127,6 +127,7 @@ body {
 
 .home {
   background-color: #151724;
+  min-width: 100vh;
 }
 
 .feature-one {
@@ -168,6 +169,19 @@ body {
 
 .header {
   background-color: #212238;
-  padding-top: 20px;
-  padding-right: 10px;
+  padding-top: 25px;
+  padding-right: 20px;
+}
+
+.data-card-main {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.data-card-desc {
+  color: #C3CAEA;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
 }
