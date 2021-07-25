@@ -1,0 +1,24 @@
+.modal {
+    background-color: #1c1f30;
+    position: absolute;
+    height: 500px;
+    width: 500px;
+    overflow: auto;
+    border-radius: 4px;
+    outline: none;
+    padding: 20px;
+}
+
+.modal_content {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    right: 40px;
+    bottom: 40px;
+    border: 1px solid #ccc;
+    background: #fff;
+    overflow: auto;
+    border-radius: 4px;
+    outline: none;
+    padding: 20px;
+}

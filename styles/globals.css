@@ -103,64 +103,6 @@ body {
   margin-left: 26.1%;
 }
 
-.home-grid {
-  margin-top: 100px;
-  margin-bottom: 100px;
-  margin-left: 26.1%;
-}
-
-.home-title {
-  color:#FFFFFF;
-  font-size: 47.5px;
-  line-height: 68px;
-  margin-bottom: 30px;
-  font-weight: 700;
-}
-
-.home-desc {
-  color: #C3CAEA;
-  margin-bottom: 40px;
-  line-height: 28px;
-  font-weight: 500;
-  font-size: 22px;
-}
-
-.home {
-  background-color: #151724;
-  min-width: 100vh;
-}
-
-.feature-one {
-  padding-top: 250px;
-}
-
-.feature-two {
-  padding-top: 200px;
-}
-
-.feature-number {
-  color: #6B9FFF;
-  font-size: 16.5px;
-  font-weight: 600;
-  line-height: 28px;
-}
-
-.feature-title {
-  color: #FFFFFF;
-  font-size: 33px;
-  font-weight: 700;
-  line-height: 40px;
-  margin-bottom: 20px;
-}
-
-.feature-desc {
-  color: #C3CAEA;
-  margin-bottom: 40px;
-  line-height: 28px;
-  font-weight: 500;
-  font-size: 21px;
-}
-
 .inventory-container {
   margin-left: 26.1%;
   margin-bottom: 2.5%;
@@ -184,4 +126,50 @@ body {
   text-align: center;
   font-size: 14px;
   font-weight: 600;
+}
+
+.container {
+  min-width: 100vh;
+}
+
+@media screen and (max-width: 1024px) {
+  .home {
+    width: 80%;
+  }
+  .card_container {
+    margin-top: -10px;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .home {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .home {
+    width: 80%;
+  }
+  .title {
+    font-size: 60px;
+  }
+  .description {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .home {
+    width: 80%;
+  }
+  .title {
+    font-size: 60px;
+  }
+  .description {
+    font-size: 20px;
+  }
+  .container {
+    height: 800px;
+  }
 }

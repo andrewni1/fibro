@@ -2,7 +2,6 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
-import Typography from '@material-ui/core/Typography';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -20,9 +19,6 @@ import CardMedia from '@material-ui/core/CardMedia';
 const drawerWidth = 260;
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    display: 'column',
-  },
   drawer: {
     width: drawerWidth,
     flexShrink: 0,
@@ -42,7 +38,6 @@ const useStyles = makeStyles((theme) => ({
     backgroundImage: 'linear-gradient(to top, #161624, #161624, #161724, #171725, #171725, #181827, #181928, #191a2a, #1b1c2d, #1d1e31, #1f2034, #212238)',
     color: '#fff',
     minHeight: '100vh',
-    minWidth: '100vh'
   },
   card: {
     backgroundColor: '#171725',
@@ -61,8 +56,8 @@ export default function PermanentDrawerLeft() {
 
   if (user) {
     return (
-      <div className={classes.root}>
-          <Drawer
+      <div className="container">
+          {/* <Drawer
             className={classes.drawer}
             variant="permanent"
             classes={{
@@ -109,13 +104,13 @@ export default function PermanentDrawerLeft() {
                   <ListItemText primary="Bots" />
               </ListItem>
             </List>
-          </Drawer>
+          </Drawer> */}
           <main>
             <Header />
             <div className={classes.content}>
               <h1>Hi, Welcome back!</h1>
               <Grid container spacing={3}>
-                <Grid item zeroMinWidth xs={3}>
+                <Grid item xs={6} lg={3}>
                   <Card className={classes.card}>
                     <CardContent>
                       <h3 className="data-card-main">$5000</h3>
@@ -123,7 +118,7 @@ export default function PermanentDrawerLeft() {
                     </CardContent>
                   </Card>
                 </Grid>
-                <Grid item zeroMinWidth xs={3}>
+                <Grid item xs={6} lg={3}>
                   <Card className={classes.card}>
                     <CardContent>
                       <h3 className="data-card-main">37</h3>
@@ -131,7 +126,7 @@ export default function PermanentDrawerLeft() {
                     </CardContent>
                   </Card>
                 </Grid>
-                <Grid item zeroMinWidth xs={3}>
+                <Grid item xs={6} lg={3}>
                   <Card className={classes.card}>
                     <CardContent>
                       <h3 className="data-card-main">$1500</h3>
@@ -139,7 +134,7 @@ export default function PermanentDrawerLeft() {
                     </CardContent>
                   </Card>
                 </Grid>
-                <Grid item zeroMinWidth xs={3}>
+                <Grid item xs={6} lg={3}>
                   <Card className={classes.card}>
                     <CardContent>
                       <h3 className="data-card-main">$92</h3>
@@ -149,7 +144,7 @@ export default function PermanentDrawerLeft() {
                 </Grid>
               </Grid>
               <Grid container spacing={3}>
-                <Grid item zeroMinWidth xs={8}>
+                <Grid item xs={8}>
                   <Card className={classes.card}>
                     <CardContent>
                       <h3>Portfolio</h3>
@@ -157,7 +152,7 @@ export default function PermanentDrawerLeft() {
                     </CardContent>
                   </Card>
                 </Grid>
-                <Grid item zeroMinWidth xs={4}>
+                <Grid item xs={4}>
                   <Card className={classes.card}>
                     <CardContent>
                       <h3>Item type pie graph</h3>
@@ -167,7 +162,7 @@ export default function PermanentDrawerLeft() {
                 </Grid>
               </Grid>
               <Grid container spacing={3}>
-                <Grid item zeroMinWidth xs={6}>
+                <Grid item xs={6}>
                   <Card className={classes.card}>
                     <CardContent>
                       <h3>Recently Added</h3>
@@ -179,7 +174,7 @@ export default function PermanentDrawerLeft() {
                     </CardContent>
                   </Card>
                 </Grid>
-                <Grid item zeroMinWidth xs={6}>
+                <Grid item xs={6}>
                   <Card className={classes.card}>
                     <CardContent>
                       <h3>Recently Sold</h3>

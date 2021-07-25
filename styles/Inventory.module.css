@@ -1,0 +1,111 @@
+.page {
+    background-image: linear-gradient(to top, #161624, #161624, #161724, #171725, #171725, #181827, #181928, #191a2a, #1b1c2d, #1d1e31, #1f2034, #212238);
+    min-height: 100vh;
+}
+
+.table {
+    margin-left: 80px;
+    margin-right: 80px;
+}
+
+.table_contents {
+    display: flex;
+    background-color: #1d1f33;
+    border-radius: 8px;
+    margin-top: 5px;
+}
+
+.table_header {
+    display: flex;
+    background-color: #212238;
+    border-radius: 8px;
+    margin-top: 5px;
+}
+
+.name_header {
+    width: 40%;
+    color: #FFF;
+    margin-left: 3%;
+}
+
+.size_header {
+    width: 15%;
+    color: #FFF;
+}
+
+.group_header {
+    width: 25%;
+    color: #FFF;
+}
+
+.price_header {
+    width: 20%;
+    color: #FFF;
+}
+
+.actions_header {
+    width: 4%;
+}
+
+.name_column {
+    width: 40%;
+    color: #595c83;
+    margin-left: 3%;
+}
+
+.size_column {
+    width: 15%;
+    color: #595c83;
+}
+
+.group_column {
+    width: 25%;
+    color: #595c83;
+}
+
+.price_column {
+    width: 20%;
+    color: #595c83;
+}
+
+.actions_column {
+    width: 4%;
+    display: flex;
+}
+
+.add_button {
+    background-color: #222139;
+    border: 2px solid #27273b;
+    color: #FFF;
+    font-size: 25px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.add_button:hover {
+    border: 2px solid #5168a0;
+    cursor: pointer;
+}
+
+.edit_button {
+    background-color: #1d1f33;
+    border: none;
+    font-size: 20px;
+    color: #425382;
+}
+
+.edit_button:hover {
+    cursor: pointer;
+}
+
+.delete_button {
+    background-color: #1d1f33;
+    border: none;
+    font-size: 20px;
+    color: #ba5566;
+}
+
+.delete_button:hover {
+    cursor: pointer;
+}
