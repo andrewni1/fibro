@@ -6,38 +6,228 @@ import styles from '../styles/Inventory.module.css'
 import style from '../styles/Modal.module.css'
 import { FiEdit } from "react-icons/fi";
 import { FiTrash } from "react-icons/fi";
+import { FiPackage } from "react-icons/fi"
+import { GiRunningShoe } from "react-icons/gi"
+import { FiBox } from "react-icons/fi";
+import { FiCpu } from "react-icons/fi";
+import { FiArchive } from "react-icons/fi";
+import { FiGlobe } from "react-icons/fi";
+import { IoShirtOutline } from "react-icons/io5"
 import Modal from 'react-modal'
+import { v4 as uuidv4 } from 'uuid';
 
 export default function Inventory () {
     const [user, loading, error] = useAuthState(firebase.auth())
     const [items, setItems] = useState([])
-    const [modalIsOpen, setModalIsOpen] = useState(false)
-
-    useEffect(() => {
-        firebase.firestore()
-          .collection('items')
-          .get()
-          .then(snap => {
-            const items = snap.docs.map(doc => ({
-              id: doc.id,
-              ...doc.data()
-            }));
-            setItems(items);
-          });
-    }, []);
-
     
+    const [refreshPage, setRereshPage] = useState(true)
+
+    const [itemName, setItemName] = useState([])
+    const [size, setSize] = useState('')
+    const [group, setGroup] = useState('')
+    const [price, setPrice] = useState([])
+
+    const [modalIsOpen, setModalIsOpen] = useState(false)
+    const [editModalOpen, setEditModalOpen] =useState(false)
+
+    const uuid = uuidv4()
+
+    var itemCount = 0;
+    var sneakerCount = 0;
+    var streetwearCount = 0;
+    var electronicsCount = 0;
+    var collectiblesCount = 0;
+    var otherCount = 0;
+
+    if (refreshPage) {
+        useEffect(() => {
+            firebase.firestore()
+              .collection('items')
+              .get()
+              .then(snap => {
+                const items = snap.docs.map(doc => ({
+                  id: doc.id,
+                  ...doc.data()
+                }));
+                setItems(items);
+              });
+        }, []);
+    }
+
+    items.map(item => {
+        if (item.userId === user.uid) {
+            if (item.group == "Sneakers") {
+                itemCount = itemCount + 1;
+                sneakerCount = sneakerCount + 1;
+            } else if (item.group == "Streetwear") {
+                itemCount = itemCount + 1;
+                streetwearCount = streetwearCount + 1;
+            } else if (item.group == "Electronics") {
+                itemCount = itemCount + 1;
+                electronicsCount = electronicsCount + 1;
+            } else if (item.group == "Collectibles") {
+                itemCount = itemCount + 1;
+                collectiblesCount = collectiblesCount + 1;
+            } else if (item.group == "Other") {
+                itemCount = itemCount + 1;
+                otherCount = otherCount + 1;
+            }
+        }
+    })
+
+    const saveItemName = (e) => {
+        setItemName(e.target.value)
+    }
+
+    const saveSize = (e) => {
+        setSize(e.target.value)
+    }
+
+    const saveGroup = (e) => {
+        setGroup(e.target.value)
+    }
+
+    const savePrice = (e) => {
+        setPrice(e.target.value)
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+
+        firebase
+          .firestore()
+            .collection('items')
+            .doc(uuid)
+            .set({
+                userId: user.uid,
+                itemName: itemName,
+                size: size,
+                group: group,
+                pricePaid: price,
+          });
+
+          refreshPage()
+    }
 
     if (user) {
         return (
             <div className={styles.page}>
                 <div>
-                    <h1>Inventory Page</h1>
-                    <button onClick={() => setModalIsOpen(true)} className={styles.add_button}>+</button>
-                    <Modal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)} className={style.modal}>
+                    <div className={styles.table}>
+                        <div className={styles.above_table}>
+                            <div className={styles.above_one}>
+                                <div className={styles.inventory_icon}>
+                                    <FiPackage />
+                                </div>
+                            </div>
+                            <div className={styles.above_two}>
+                                <h4>Item Inventory</h4>
+                                <h6>Value:</h6>
+                                <h6>Items:</h6>
+                            </div>
+                            <div className={styles.above_three}>
+                                <h2>Chosen Category</h2>
+                            </div>
+                            <div className={styles.above_icons}>
+                                <div>
+                                    <button className={styles.group_button}>
+                                        <div title="All" className={styles.button_contents}>
+                                            <div title="All" className={styles.group_icon}>
+                                                <FiGlobe />
+                                            </div>
+                                            <div title="All" className={styles.group_number}>
+                                                {itemCount}
+                                            </div>
+                                        </div>
+                                    </button>
+                                    <button className={styles.group_button}>
+                                        <div title="Sneakers" className={styles.button_contents}>
+                                            <div title="Sneakers" className={styles.group_icon}>
+                                                <GiRunningShoe />
+                                            </div>
+                                            <div title="Sneakers" className={styles.group_number}>
+                                                {sneakerCount}
+                                            </div>
+                                        </div>
+                                    </button>
+                                    <button className={styles.group_button}>
+                                        <div title="Streetwear" className={styles.button_contents}>
+                                            <div title="Streetwear" className={styles.group_icon}>
+                                                <IoShirtOutline />
+                                            </div>
+                                            <div title="Streetwear" className={styles.group_number}>
+                                                {streetwearCount}
+                                            </div>
+                                        </div>
+                                    </button>
+                                </div>
+                                <div>
+                                    <button className={styles.group_button}>
+                                        <div title="Electronics" className={styles.button_contents}>
+                                            <div title="Electronics" className={styles.group_icon}>
+                                                <FiCpu />
+                                            </div>
+                                            <div title="Electronics" className={styles.group_number}>
+                                                {electronicsCount}
+                                            </div>
+                                        </div>
+                                    </button>
+                                    <button className={styles.group_button}>
+                                        <div title="Collectibles" className={styles.button_contents}>
+                                            <div title="Collectibles" className={styles.group_icon}>
+                                                <FiArchive />
+                                            </div>
+                                            <div title="Collectibles" className={styles.group_number}>
+                                                {collectiblesCount}
+                                            </div>
+                                        </div>
+                                    </button>
+                                    <button className={styles.group_button}>
+                                        <div title="Other" className={styles.button_contents}>
+                                            <div title="Other" className={styles.group_icon}>
+                                                <FiBox />
+                                            </div>
+                                            <div title="Other" className={styles.group_number}>
+                                                {otherCount}
+                                            </div>
+                                        </div>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <button onClick={() => setModalIsOpen(true)} className={styles.add_button}>+</button>
+                    </div>
+                    <Modal ariaHideApp={false} isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)} className={style.modal}>
                         <div className={style.modal_content}>
-                            <h2>Modal Title</h2>
-                            <p>Modal Body</p>
+                            <form onSubmit={handleSubmit}>
+                                <input type="text" placeholder="Product Name" onChange={saveItemName} required />
+                                <select  onChange={saveSize} defaultValue="" required>
+                                    <option disabled={true} value="">Size</option>
+                                    <option onChange={saveSize}>N/A</option>
+                                    <option onChange={saveSize}>3.5</option>
+                                    <option onChange={saveSize}>4</option>
+                                    <option onChange={saveSize}>4.5</option>
+                                    <option onChange={saveSize}>5</option>
+                                    <option onChange={saveSize}>5.5</option>
+                                    <option onChange={saveSize}>6</option>
+                                    <option onChange={saveSize}>6.5</option>
+                                    <option onChange={saveSize}>7.5</option>
+                                    <option onChange={saveSize}>8</option>
+                                    <option onChange={saveSize}>8.5</option>
+                                    <option onChange={saveSize}>9.5</option>
+                                    <option onChange={saveSize}>10</option>
+                                </select>
+                                <select onChange={saveGroup} defaultValue="" required>
+                                    <option disabled={true} value="">Group</option>
+                                    <option onChange={saveGroup}>Sneakers</option>
+                                    <option onChange={saveGroup}>Streetwear</option>
+                                    <option onChange={saveGroup}>Electronics</option>
+                                    <option onChange={saveGroup}>Collectibles</option>
+                                    <option onChange={saveGroup}>Other</option>
+                                </select>
+                                <input type="number" placeholder="Price Paid" onChange={savePrice} required />
+                                <button type="submit" >Create Item</button>
+                            </form>
                             <button onClick={() => setModalIsOpen(false)}>Close</button>
                         </div>
                     </Modal>
@@ -61,8 +251,9 @@ export default function Inventory () {
                     </div>
                     {
                         items.map(item => {
-                            return (
-                                <div key={item.id} className={styles.table_contents}>
+                            if(item.userId === user.uid) {
+                                return (
+                                    <div key={item.id} className={styles.table_contents}>
                                     <div className={styles.name_column}>
                                         <h2>{item.itemName}</h2>
                                     </div>
@@ -76,22 +267,51 @@ export default function Inventory () {
                                         <h2>${item.pricePaid}</h2>
                                     </div>
                                     <div className={styles.actions_column}>
-                                        <button className={styles.edit_button}><FiEdit /></button>
+                                        <button className={styles.edit_button} onClick={() => {
+                                            setEditModalOpen(true)
+                                        }}><FiEdit /></button>
+                                        <Modal ariaHideApp={false} isOpen={editModalOpen} onRequestClose={() => setEditModalOpen(false)} className={style.modal}>
+                                            <div className={style.modal_content}>
+                                                <form onSubmit={() => {
+                                                    firebase
+                                                        .firestore()
+                                                        .collection('items')
+                                                        .doc(item.id)
+                                                        .update({
+                                                            itemName: itemName,
+                                                            size: size,
+                                                            group: group,
+                                                            pricePaid: price,
+                                                    })
+                                                }}>
+                                                    <input type="text" placeholder="Product Name" onChange={saveItemName} value={item.itemName} required />
+                                                    <input type="text" placeholder="Size" onChange={saveSize} value={item.size} required />
+                                                    <input type="text" placeholder="Group" onChange={saveGroup} value={item.group} required />
+                                                    <input type="number" placeholder="Price Paid" onChange={savePrice} value={item.pricePaid} required />
+                                                    <button type="submit" >Edit Item</button>
+                                                </form>
+                                                <button onClick={() => setEditModalOpen(false)}>Close</button>
+                                            </div>
+                                        </Modal>
                                         <button className={styles.delete_button} onClick={() => {
-                                            firebase.firestore()
+                                            firebase
+                                                .firestore()
                                                 .collection('items')
-                                                .doc(item.id).delete().then(() => {
+                                                .doc(item.id)
+                                                .delete()
+                                                .then(() => {
                                                     console.log(item.id)
                                                 })
                                         }}><FiTrash /></button>
                                     </div>
                                 </div>
                             )
+                                
+                            }   
                         })
                     }
                 </div>
             </div>
-
         )
     }
     else return (

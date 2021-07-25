@@ -1,9 +1,10 @@
 import React from 'react';
+import styles from '../styles/Home.module.css'
 
 export default function Footer() {
     return (
         <>
-            <div className="footer">
+            <div className={styles.footer}>
                 <div className="footer-grid">
                     <h4 className="footer-header">Navigation</h4>
                     <a className="footer-link" href="/">Home</a>

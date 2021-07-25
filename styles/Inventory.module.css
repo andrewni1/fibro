@@ -13,6 +13,7 @@
     background-color: #1d1f33;
     border-radius: 8px;
     margin-top: 5px;
+    font-size: 14px;
 }
 
 .table_header {
@@ -20,6 +21,7 @@
     background-color: #212238;
     border-radius: 8px;
     margin-top: 5px;
+    font-size: 14px;
 }
 
 .name_header {
@@ -108,4 +110,68 @@
 
 .delete_button:hover {
     cursor: pointer;
+}
+
+.above_table {
+    display: flex;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.above_one {
+    background-color: #161624;
+    width: 5%;
+}
+
+.above_two {
+    width: 15%;
+    border-right: 3px solid white;
+}
+
+.above_three {
+    width: 70%;
+}
+
+.above_icons {
+    width: 15.5%;
+}
+
+.inventory_icon {
+    color: #6B9FFF;
+    font-size: 50px;
+}
+
+.group_button {
+    width: 100px;
+    height: 45px;
+    margin-top: 20px;
+    margin-left: 15px;
+    background: linear-gradient(to right, #212238 50%, #161624 50%);
+    border: none;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    border: 2px solid #27273b;
+}
+
+.group_button:hover {
+    border: 2px solid #5168a0;
+    cursor: pointer;
+}
+
+.button_contents {
+    font-size: 16px;
+    display: flex;
+}
+
+.group_icon {
+    color: #6B9FFF;
+    background-color: #212238;
+    margin-left: 10px;
+}
+
+.group_number {
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    margin-left: 35px;
 }
