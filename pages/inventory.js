@@ -15,8 +15,9 @@ import { FiGlobe } from "react-icons/fi";
 import { IoShirtOutline } from "react-icons/io5"
 import Modal from 'react-modal'
 import { v4 as uuidv4 } from 'uuid';
+import Navbar from '../components/navbar'
 
-export default function Inventory () {
+export default function Inventory() {
     const [user, loading, error] = useAuthState(firebase.auth())
     const [items, setItems] = useState([])
     
@@ -198,14 +199,61 @@ export default function Inventory () {
                             </div>
                             <div className={styles.above_three}>
                                 <div className={styles.inventory_icon}>
-                                    <FiGlobe />
+                                    {(() => {
+                                        if (activeGroup == "All Groups"){
+                                            return (
+                                                <FiGlobe />
+                                            )
+                                        } else if (activeGroup == "Sneakers") {
+                                            return (
+                                                <GiRunningShoe />
+                                            )
+                                        } else if (activeGroup == "Streetwear") {
+                                            return (
+                                                <IoShirtOutline />
+                                            )
+                                        } else if (activeGroup == "Electronics") {
+                                            return (
+                                                <FiCpu />
+                                            )
+                                        } else if (activeGroup == "Collectibles") {
+                                            return (
+                                                <FiArchive />
+                                            )
+                                        } else if (activeGroup == "Other") {
+                                            return (
+                                                <FiBox />
+                                            )
+                                        }
+                                        
+                                        return null;
+                                    })()}
                                 </div>
                                 <div className={styles.group_display}>
-                                    <a className={styles.group_title}>{activeGroup}</a>
-                                    <br />
-                                    <a className={styles.group_desc}>Value: ${activeValue}</a>
-                                    <br />
-                                    <a className={styles.group_desc}>Items: {activeCount}</a>
+                                    {(() => {
+                                        if (activeGroup == "All Groups"){
+                                            return (
+                                                <div>
+                                                    <a className={styles.group_title}>All Groups</a>
+                                                    <br />
+                                                    <a className={styles.group_desc}>Value: ${allValue}</a>
+                                                    <br />
+                                                    <a className={styles.group_desc}>Items: {itemCount}</a>
+                                                </div>
+                                            )
+                                        } else if (activeGroup != "All Groups") {
+                                            return (
+                                                <div>
+                                                    <a className={styles.group_title}>{activeGroup}</a>
+                                                    <br />
+                                                    <a className={styles.group_desc}>Value: ${activeValue}</a>
+                                                    <br />
+                                                    <a className={styles.group_desc}>Items: {activeCount}</a>
+                                                </div>
+                                            )
+                                        } 
+                                        return null;
+                                    })()}
                                 </div>
                             </div>
                             <div className={styles.above_icons}>
@@ -275,7 +323,10 @@ export default function Inventory () {
                                 </div>
                             </div>
                         </div>
-                        <button onClick={() => setModalIsOpen(true)} className={styles.add_button}>+</button>
+                        <div className={styles.utility_bar}>
+                            <input className={styles.search_bar} type="text" placeholder="Search products" />
+                            <button onClick={() => setModalIsOpen(true)} className={styles.add_button}>+</button>
+                        </div>
                     </div>
                     <Modal ariaHideApp={false} isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)} className={style.modal}>
                         <div className={style.modal_content}>
@@ -294,6 +345,7 @@ export default function Inventory () {
                                     <option onChange={saveSize}>7.5</option>
                                     <option onChange={saveSize}>8</option>
                                     <option onChange={saveSize}>8.5</option>
+                                    <option onChange={saveSize}>9</option>
                                     <option onChange={saveSize}>9.5</option>
                                     <option onChange={saveSize}>10</option>
                                 </select>

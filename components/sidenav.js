@@ -1,7 +1,9 @@
 import React from 'react';
-import styles from '../styles/Navbar.module.css'
+import styles from '../styles/SideNav.module.css'
+import { FiGrid } from "react-icons/fi";
+import { FiPackage } from "react-icons/fi"
 
-export default function Navbar() {
+export default function SideNav() {
     return (
         <div className={styles.nav_wrapper}>
             <div className={styles.nav_menu}>

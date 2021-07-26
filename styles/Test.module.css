@@ -1,0 +1,11 @@
+.page {
+    display: flex;
+}
+
+.nav {
+    width: 5%;
+}
+
+.content {
+    width: 95%;
+}
