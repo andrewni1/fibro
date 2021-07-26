@@ -1,6 +1,7 @@
 .page {
     background-image: linear-gradient(to top, #161624, #161624, #161724, #171725, #171725, #181827, #181928, #191a2a, #1b1c2d, #1d1e31, #1f2034, #212238);
     min-height: 100vh;
+    padding-top: 20px;
 }
 
 .table {
@@ -121,11 +122,11 @@
 }
 
 .above_one {
-   width: 9%; 
+   width: 7%; 
 }
 
 .above_two {
-    width: 10%;
+    width: 8%;
     border-right: 3px solid #444456;
     margin-top: 30px;
 }
