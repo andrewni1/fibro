@@ -119,17 +119,48 @@
 }
 
 .above_one {
-    background-color: #161624;
-    width: 5%;
+   width: 7%; 
 }
 
 .above_two {
-    width: 15%;
-    border-right: 3px solid white;
+    width: 7.5%;
+    border-right: 3px solid #444456;
+    margin-top: 30px;
+}
+
+.above_two_title {
+    color: white;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.above_two_desc {
+    color: #5564a2;
+    font-size: 16px;
+    font-weight: 550;
 }
 
 .above_three {
-    width: 70%;
+    display: flex;
+    width: 75%;
+    margin-left: 45px;
+}
+
+.group_display {
+    margin-left: 45px;
+    margin-top: 30px;
+}
+
+.group_title {
+    color: white;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.group_desc {
+    color: #5564a2;
+    font-size: 16px;
+    font-weight: 550;
 }
 
 .above_icons {
@@ -137,8 +168,16 @@
 }
 
 .inventory_icon {
+    margin-top: 20px;
+    height: 110px;
+    width: 110px;
+    padding-left: 24px;
+    padding-top: 17px;
     color: #6B9FFF;
-    font-size: 50px;
+    font-size: 60px;
+    background-color: #171725;
+    border-radius: 5px;
+    border: 2px solid #27273b;
 }
 
 .group_button {

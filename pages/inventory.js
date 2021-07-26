@@ -39,6 +39,13 @@ export default function Inventory () {
     var collectiblesCount = 0;
     var otherCount = 0;
 
+    var allValue = 0;
+    var sneakerValue = 0;
+    var streetwearValue = 0;
+    var electronicsValue = 0;
+    var collectiblesValue = 0;
+    var otherValue = 0;
+
     if (refreshPage) {
         useEffect(() => {
             firebase.firestore()
@@ -59,21 +66,35 @@ export default function Inventory () {
             if (item.group == "Sneakers") {
                 itemCount = itemCount + 1;
                 sneakerCount = sneakerCount + 1;
+                allValue = allValue + parseInt(item.pricePaid);
+                sneakerValue = sneakerValue + parseInt(item.pricePaid);
             } else if (item.group == "Streetwear") {
                 itemCount = itemCount + 1;
                 streetwearCount = streetwearCount + 1;
+                allValue = allValue + parseInt(item.pricePaid);
+                streetwearValue = streetwearValue + parseInt(item.pricePaid);
             } else if (item.group == "Electronics") {
                 itemCount = itemCount + 1;
                 electronicsCount = electronicsCount + 1;
+                allValue = allValue + parseInt(item.pricePaid);
+                electronicsValue = electronicsValue + parseInt(item.pricePaid);
             } else if (item.group == "Collectibles") {
                 itemCount = itemCount + 1;
                 collectiblesCount = collectiblesCount + 1;
+                allValue = allValue + parseInt(item.pricePaid);
+                collectiblesValue = collectiblesValue + parseInt(item.pricePaid);
             } else if (item.group == "Other") {
                 itemCount = itemCount + 1;
                 otherCount = otherCount + 1;
+                allValue = allValue + parseInt(item.pricePaid);
+                otherValue = otherValue + parseInt(item.pricePaid);
             }
         }
     })
+
+    const [activeGroup, setActiveGroup] = useState("All Groups")
+    const [activeValue, setActiveValue] = useState(allValue)
+    const [activeCount, setActiveCount] = useState(itemCount)
 
     const saveItemName = (e) => {
         setItemName(e.target.value)
@@ -109,6 +130,54 @@ export default function Inventory () {
           refreshPage()
     }
 
+    const changeToAll = (e) => {
+        e.preventDefault()
+
+        setActiveGroup("All Groups");
+        setActiveValue(allValue);
+        setActiveCount(itemCount);
+    }
+
+    const changeToSneakers = (e) => {
+        e.preventDefault()
+
+        setActiveGroup("Sneakers");
+        setActiveValue(sneakerValue);
+        setActiveCount(sneakerCount);
+    }
+
+    const changeToStreetwear = (e) => {
+        e.preventDefault()
+
+        setActiveGroup("Streetwear");
+        setActiveValue(streetwearValue);
+        setActiveCount(streetwearCount);
+    }
+
+    const changeToElectronics = (e) => {
+        e.preventDefault()
+
+        setActiveGroup("Electronics");
+        setActiveValue(electronicsValue);
+        setActiveCount(electronicsCount);
+    }
+
+    const changeToCollectibles = (e) => {
+        e.preventDefault()
+
+        setActiveGroup("Collectibles");
+        setActiveValue(collectiblesValue);
+        setActiveCount(collectiblesCount);
+    }
+
+    const changeToOther = (e) => {
+        e.preventDefault()
+
+        setActiveGroup("Other");
+        setActiveValue(otherValue);
+        setActiveCount(otherCount);
+    }
+
     if (user) {
         return (
             <div className={styles.page}>
@@ -121,16 +190,27 @@ export default function Inventory () {
                                 </div>
                             </div>
                             <div className={styles.above_two}>
-                                <h4>Item Inventory</h4>
-                                <h6>Value:</h6>
-                                <h6>Items:</h6>
+                                <a className={styles.above_two_title}>Inventory</a>
+                                <br />
+                                <a className={styles.above_two_desc}>Value: ${allValue}</a>
+                                <br />
+                                <a className={styles.above_two_desc}>Items: {itemCount}</a>
                             </div>
                             <div className={styles.above_three}>
-                                <h2>Chosen Category</h2>
+                                <div className={styles.inventory_icon}>
+                                    <FiGlobe />
+                                </div>
+                                <div className={styles.group_display}>
+                                    <a className={styles.group_title}>{activeGroup}</a>
+                                    <br />
+                                    <a className={styles.group_desc}>Value: ${activeValue}</a>
+                                    <br />
+                                    <a className={styles.group_desc}>Items: {activeCount}</a>
+                                </div>
                             </div>
                             <div className={styles.above_icons}>
                                 <div>
-                                    <button className={styles.group_button}>
+                                    <button onClick={changeToAll} className={styles.group_button}>
                                         <div title="All" className={styles.button_contents}>
                                             <div title="All" className={styles.group_icon}>
                                                 <FiGlobe />
@@ -140,7 +220,7 @@ export default function Inventory () {
                                             </div>
                                         </div>
                                     </button>
-                                    <button className={styles.group_button}>
+                                    <button onClick={changeToSneakers} className={styles.group_button}>
                                         <div title="Sneakers" className={styles.button_contents}>
                                             <div title="Sneakers" className={styles.group_icon}>
                                                 <GiRunningShoe />
@@ -150,7 +230,7 @@ export default function Inventory () {
                                             </div>
                                         </div>
                                     </button>
-                                    <button className={styles.group_button}>
+                                    <button onClick={changeToStreetwear} className={styles.group_button}>
                                         <div title="Streetwear" className={styles.button_contents}>
                                             <div title="Streetwear" className={styles.group_icon}>
                                                 <IoShirtOutline />
@@ -162,7 +242,7 @@ export default function Inventory () {
                                     </button>
                                 </div>
                                 <div>
-                                    <button className={styles.group_button}>
+                                    <button onClick={changeToElectronics} className={styles.group_button}>
                                         <div title="Electronics" className={styles.button_contents}>
                                             <div title="Electronics" className={styles.group_icon}>
                                                 <FiCpu />
@@ -172,7 +252,7 @@ export default function Inventory () {
                                             </div>
                                         </div>
                                     </button>
-                                    <button className={styles.group_button}>
+                                    <button onClick={changeToCollectibles} className={styles.group_button}>
                                         <div title="Collectibles" className={styles.button_contents}>
                                             <div title="Collectibles" className={styles.group_icon}>
                                                 <FiArchive />
@@ -182,7 +262,7 @@ export default function Inventory () {
                                             </div>
                                         </div>
                                     </button>
-                                    <button className={styles.group_button}>
+                                    <button onClick={changeToOther} className={styles.group_button}>
                                         <div title="Other" className={styles.button_contents}>
                                             <div title="Other" className={styles.group_icon}>
                                                 <FiBox />
