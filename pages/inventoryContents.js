@@ -4,14 +4,8 @@ import { useAuthState } from "react-firebase-hooks/auth"
 import Auth from '../components/Auth'
 import styles from '../styles/InventoryContents.module.css'
 import style from '../styles/Modal.module.css'
-import { FiEdit } from "react-icons/fi";
-import { FiTrash } from "react-icons/fi";
-import { FiPackage } from "react-icons/fi"
+import { FiEdit, FiTrash, FiPackage, FiBox, FiCpu, FiArchive, FiGlobe } from "react-icons/fi";
 import { GiRunningShoe } from "react-icons/gi"
-import { FiBox } from "react-icons/fi";
-import { FiCpu } from "react-icons/fi";
-import { FiArchive } from "react-icons/fi";
-import { FiGlobe } from "react-icons/fi";
 import { IoShirtOutline } from "react-icons/io5"
 import Modal from 'react-modal'
 import { v4 as uuidv4 } from 'uuid';
@@ -124,6 +118,7 @@ export default function InventoryContents() {
                 size: size,
                 group: group,
                 pricePaid: price,
+                date: new Date()
           });
     }
 
@@ -377,67 +372,69 @@ export default function InventoryContents() {
                         <div className={styles.actions_header}> 
                         </div>
                     </div>
-                    {
-                        items.map(item => {
-                            if(item.userId === user.uid) {
-                                return (
-                                    <div key={item.id} className={styles.table_contents}>
-                                    <div className={styles.name_column}>
-                                        <h2>{item.itemName}</h2>
-                                    </div>
-                                    <div className={styles.size_column}>
-                                        <h2>{item.size}</h2>
-                                    </div>
-                                    <div className={styles.group_column}>
-                                        <h2>{item.group}</h2>
-                                    </div>
-                                    <div className={styles.price_column}>
-                                        <h2>${item.pricePaid}</h2>
-                                    </div>
-                                    <div className={styles.actions_column}>
-                                        <button className={styles.edit_button} onClick={() => {
-                                            setEditModalOpen(true)
-                                        }}><FiEdit /></button>
-                                        <Modal ariaHideApp={false} isOpen={editModalOpen} onRequestClose={() => setEditModalOpen(false)} className={style.modal}>
-                                            <div className={style.modal_content}>
-                                                <form onSubmit={() => {
-                                                    firebase
-                                                        .firestore()
-                                                        .collection('items')
-                                                        .doc(item.id)
-                                                        .update({
-                                                            itemName: itemName,
-                                                            size: size,
-                                                            group: group,
-                                                            pricePaid: price,
-                                                    })
-                                                }}>
-                                                    <input type="text" placeholder="Product Name" onChange={saveItemName} value={item.itemName} required />
-                                                    <input type="text" placeholder="Size" onChange={saveSize} value={item.size} required />
-                                                    <input type="text" placeholder="Group" onChange={saveGroup} value={item.group} required />
-                                                    <input type="number" placeholder="Price Paid" onChange={savePrice} value={item.pricePaid} required />
-                                                    <button type="submit" >Edit Item</button>
-                                                </form>
-                                                <button onClick={() => setEditModalOpen(false)}>Close</button>
+                    <div className={styles.content_container}>
+                        {
+                            items.map(item => {
+                                if(item.userId === user.uid) {
+                                    return (
+                                        <div key={item.id} className={styles.table_contents}>
+                                            <div className={styles.name_column}>
+                                                <h2>{item.itemName}</h2>
                                             </div>
-                                        </Modal>
-                                        <button className={styles.delete_button} onClick={() => {
-                                            firebase
-                                                .firestore()
-                                                .collection('items')
-                                                .doc(item.id)
-                                                .delete()
-                                                .then(() => {
-                                                    console.log(item.id)
-                                                })
-                                        }}><FiTrash /></button>
-                                    </div>
-                                </div>
-                            )
-                                
-                            }   
-                        })
-                    }
+                                            <div className={styles.size_column}>
+                                                <h2>{item.size}</h2>
+                                            </div>
+                                            <div className={styles.group_column}>
+                                                <h2>{item.group}</h2>
+                                            </div>
+                                            <div className={styles.price_column}>
+                                                <h2>${item.pricePaid}</h2>
+                                        </div>
+                                        <div className={styles.actions_column}>
+                                            <button className={styles.edit_button} onClick={() => {
+                                                setEditModalOpen(true)
+                                            }}><FiEdit /></button>
+                                            <Modal ariaHideApp={false} isOpen={editModalOpen} onRequestClose={() => setEditModalOpen(false)} className={style.modal}>
+                                                <div className={style.modal_content}>
+                                                    <form onSubmit={() => {
+                                                        firebase
+                                                            .firestore()
+                                                            .collection('items')
+                                                            .doc(item.id)
+                                                            .update({
+                                                                itemName: itemName,
+                                                                size: size,
+                                                                group: group,
+                                                                pricePaid: price,
+                                                        })
+                                                    }}>
+                                                        <input type="text" placeholder="Product Name" onChange={saveItemName} value={item.itemName} required />
+                                                        <input type="text" placeholder="Size" onChange={saveSize} value={item.size} required />
+                                                        <input type="text" placeholder="Group" onChange={saveGroup} value={item.group} required />
+                                                        <input type="number" placeholder="Price Paid" onChange={savePrice} value={item.pricePaid} required />
+                                                        <button type="submit" >Edit Item</button>
+                                                    </form>
+                                                    <button onClick={() => setEditModalOpen(false)}>Close</button>
+                                                </div>
+                                            </Modal>
+                                            <button className={styles.delete_button} onClick={() => {
+                                                firebase
+                                                    .firestore()
+                                                    .collection('items')
+                                                    .doc(item.id)
+                                                    .delete()
+                                                    .then(() => {
+                                                        console.log(item.id)
+                                                    })
+                                            }}><FiTrash /></button>
+                                        </div>
+                                        </div>
+                                    )
+                                    
+                                }   
+                            })
+                        }
+                    </div>
                 </div>
             </div>
         )

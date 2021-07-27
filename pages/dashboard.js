@@ -1,5 +1,5 @@
 import DashboardContents from './dashboardContents'
-import styles from '../styles/PageFormat.module.css'
+import styles from '../styles/Page.module.css'
 import SideNav from '../components/sidenav'
 
 export default function Dashboard() {

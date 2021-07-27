@@ -1,5 +1,5 @@
 import InventoryContents from './inventoryContents'
-import styles from '../styles/PageFormat.module.css'
+import styles from '../styles/Page.module.css'
 import SideNav from '../components/sidenav'
 
 export default function Inventory() {
