@@ -123,7 +123,8 @@
 }
 
 .recently_added_table_row {
-    font-size: 14px;
+    font-size: 16px;
+    font-weight: 550;
     width: 100%;
     background-color: #272b40;
     color: white;
@@ -131,6 +132,7 @@
     margin-top: 5px;
     margin-bottom: 5px;
     border-radius: 16px;
+    display: flex;
 }
 
 .rows_container {
@@ -164,7 +166,7 @@
 }
 
 .recently_sold_table_row {
-    font-size: 14px;
+    font-size: 16px;
     width: 100%;
     background-color: #272b40;
     color: white;
@@ -172,6 +174,7 @@
     margin-top: 5px;
     margin-bottom: 5px;
     border-radius: 16px;
+    display: flex;
 }
 
 .third_row_container {
@@ -214,26 +217,39 @@
 }
 
 .sneakers_dot {
-    color: rgb(255, 80, 80);
+    color: #749af2;
     font-size: 20px;
 }
 
 .streetwear_dot {
-    color: rgb(255, 188, 62);
+    color: #5d8af3;
     font-size: 20px;
 }
 
 .electronics_dot {
-    color: rgb(93, 201, 93);
+    color: #4176f3;
     font-size: 20px;
 }
 
 .collectibles_dot {
-    color: rgb(163, 163, 163);
+    color: #2c5cca;
     font-size: 20px;
 }
 
 .other_dot {
-    color: rgb(179, 110, 206);
+    color: #2864f0;
     font-size: 20px;
+}
+
+.table_header {
+    font-size: 18px;
+    font-weight: 600;
+    width: 100%;
+    color: white;
+    padding-left: 20px;
+    display: flex;
+}
+
+.table_col_one {
+    width: 70%;
 }

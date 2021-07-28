@@ -75,7 +75,7 @@ export default function DashContentsOne() {
             <div className={styles.user_card}>
                 <a className={styles.user_card_greeting}>Welcome back,</a>
                 <br />
-                <a className={styles.user_card_name}>{user.displayName}!</a>
+                <a className={styles.user_card_name}>Faduf!</a>
             </div>
             <div className={styles.summary_row}>
                 <div className={styles.summary_card}>
@@ -149,11 +149,11 @@ export default function DashContentsOne() {
                     <div className={styles.piechart}>
                         <PieChart
                             data={[
-                                { title: 'Sneakers', value: sneakerValue, color: 'rgb(255, 80, 80)' },
-                                { title: 'Streetwear', value: streetwearValue, color: 'rgb(255, 188, 62)' },
-                                { title: 'Electronics', value: electronicsValue, color: 'rgb(93, 201, 93)' },
-                                { title: 'Collectibles', value: collectiblesValue, color: 'rgb(163, 163, 163)' },
-                                { title: 'Other', value: otherValue, color: 'rgb(179, 110, 206)' },
+                                { title: 'Sneakers', value: sneakerValue, color: '#749af2' },
+                                { title: 'Streetwear', value: streetwearValue, color: '#5d8af3' },
+                                { title: 'Electronics', value: electronicsValue, color: '#4176f3' },
+                                { title: 'Collectibles', value: collectiblesValue, color: '#2c5cca' },
+                                { title: 'Other', value: otherValue, color: '#2864f0' },
                             ]}
                             label={({ x, y, dx, dy, dataEntry }) => (
                                 <text
@@ -166,12 +166,13 @@ export default function DashContentsOne() {
                                 style={{
                                     fontSize: '5px',
                                     fontFamily: 'sans-serif',
-                                    fontWeight: 'bold',
+                                    fontWeight: 'bold'
                                 }}
                                 >
                                 {Math.round(dataEntry.percentage) + '%'}
                                 </text>
                             )}
+                            labelPosition={60}
                         />
                     </div>
                 </div>

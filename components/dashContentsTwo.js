@@ -27,13 +27,26 @@ export default function DashContentsTwo() {
                 </div>
                 <div className={styles.rows_container}>
                     <div className={styles.recently_added_table_rows}>
+                        <div className={styles.table_header}>
+                            <div className={styles.table_col_one}>
+                                <a>Product</a>
+                            </div>
+                            <div className={styles.table_col_two}>
+                                <a>Price</a>
+                            </div>
+                        </div>
                         {
                             items.map(item => {
                                 if(item.userId === user.uid) {
                                     return (
                                         <div key={item.id} className={styles.table_contents}>
                                             <div className={styles.recently_added_table_row}>
-                                                <h2>{item.itemName}</h2>
+                                                <div className={styles.table_col_one}>
+                                                    <h4>{item.itemName}</h4>
+                                                </div>
+                                                <div className={styles.table_col_two}>
+                                                    <h4>${item.pricePaid}</h4>
+                                                </div>
                                             </div>
                                         </div>
                                     )
@@ -49,13 +62,26 @@ export default function DashContentsTwo() {
                     </div>
                     <div className={styles.rows_container}>
                         <div className={styles.recently_added_table_rows}>
+                            <div className={styles.table_header}>
+                                <div className={styles.table_col_one}>
+                                    <a>Product</a>
+                                </div>
+                                <div className={styles.table_col_two}>
+                                    <a>Price</a>
+                                </div>
+                            </div>
                             {
                                 items.map(item => {
                                     if(item.userId === user.uid) {
                                         return (
                                             <div key={item.id} className={styles.table_contents}>
                                                 <div className={styles.recently_added_table_row}>
-                                                    <h2>{item.itemName}</h2>
+                                                    <div className={styles.table_col_one}>
+                                                        <h4>{item.itemName}</h4>
+                                                    </div>
+                                                    <div className={styles.table_col_two}>
+                                                        <h4>${item.pricePaid}</h4>
+                                                    </div>
                                                 </div>
                                             </div>
                                         )
