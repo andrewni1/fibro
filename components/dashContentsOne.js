@@ -70,6 +70,11 @@ export default function DashContentsOne() {
 
     return (
         <div>
+            <div className={styles.user_card}>
+                <a className={styles.user_card_greeting}>Welcome back,</a>
+                <br />
+                <a className={styles.user_card_name}>{user.displayName}!</a>
+            </div>
             <div className={styles.summary_row}>
                 <div className={styles.summary_card}>
                     <div className={styles.summary_card_first_col}>

@@ -14,6 +14,30 @@
     width: 65%;
 }
 
+.user_card {
+    background-image: linear-gradient(to top, #161624, #161624, #161724, #171725, #171725, #181827, #181928, #191a2a, #1b1c2d, #1d1e31, #1f2034, #212238);
+    background-color: #1d1e31;
+    border: 2.5px solid #303146;
+    height: 200px;
+    border-radius: 20px;
+    margin-right: 15px;
+    margin-bottom: 10px;
+    padding: 20px;
+    padding-left: 50px;
+}
+
+.user_card_greeting {
+    color: white;
+    font-size: 60px;
+    font-weight: 600;
+}
+
+.user_card_name {
+    color: #9899b8;
+    font-size: 50px;
+    font-weight: 550;
+}
+
 .second_col {
     width: 35%;
 }
@@ -97,13 +121,54 @@
     padding-left: 20px;
 }
 
-.recently_added_table_rows {
+.recently_added_table_row {
+    font-size: 14px;
+    width: 100%;
     background-color: #272b40;
     color: white;
     padding-left: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 16px;
+}
+
+.rows_container {
+    height: 500px;
+    padding: 10px;
+    overflow-y: scroll;
+}
+
+.rows_container::-webkit-scrollbar-track
+{
+    display: none;
+}
+
+.rows_container::-webkit-scrollbar
+{
+	width: 10px;
+    display: none;
+}
+
+.rows_container::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+    height: 10px;
+	background-color: #1e1d32;
+    display: none;
 }
 
 .table_contents {
     display: flex;
     border-radius: 8px;
+}
+
+.recently_sold_table_row {
+    font-size: 14px;
+    width: 100%;
+    background-color: #272b40;
+    color: white;
+    padding-left: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 16px;
 }
