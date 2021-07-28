@@ -1,9 +1,10 @@
 import styles from '../styles/DashboardContents.module.css'
-import { GrMoney } from 'react-icons/gr'
-import { FiPackage } from 'react-icons/fi'
+import { FiPackage, FiBriefcase, FiTrendingUp, FiTag } from 'react-icons/fi'
 import { useState, useEffect } from 'react';
 import firebase from "../firebase/clientApp";
 import { useAuthState } from "react-firebase-hooks/auth"
+import { PieChart } from 'react-minimal-pie-chart';
+import { BsDot } from 'react-icons/bs';
 
 export default function DashContentsOne() {
     const [user, loading, error] = useAuthState(firebase.auth())
@@ -23,6 +24,7 @@ export default function DashContentsOne() {
     var collectiblesValue = 0;
     var otherValue = 0;
 
+    var sneakerPercent = (sneakerValue / allValue) * 100;
 
     useEffect(() => {
             firebase.firestore()
@@ -96,7 +98,7 @@ export default function DashContentsOne() {
                     <div className={styles.summary_card_first_col}>
                         <div className={styles.summary_card_icon}>
                             <div className={styles.icon}>
-                                <GrMoney />
+                                <FiBriefcase />
                             </div>
                         </div>
                     </div>
@@ -112,7 +114,7 @@ export default function DashContentsOne() {
                     <div className={styles.summary_card_first_col}>
                         <div className={styles.summary_card_icon}>
                             <div className={styles.icon}>
-                                <FiPackage />
+                                <FiTrendingUp />
                             </div>
                         </div>
                     </div>
@@ -127,8 +129,8 @@ export default function DashContentsOne() {
                 <div className={styles.summary_card}>
                     <div className={styles.summary_card_first_col}>
                         <div className={styles.summary_card_icon}>
-                            <div className={styles.icon}>
-                                <FiPackage />
+                            <div className={styles.icon_tag}>
+                                <FiTag />
                             </div>
                         </div>
                     </div>
@@ -141,7 +143,74 @@ export default function DashContentsOne() {
                     </div>
                 </div>
             </div>
-            <div>
+            <div className={styles.third_row_container}>
+                <h1 className={styles.inventory_summary}>Inventory Summary</h1>
+                <div className={styles.pie_row}>
+                    <div className={styles.piechart}>
+                        <PieChart
+                            data={[
+                                { title: 'Sneakers', value: sneakerValue, color: 'rgb(255, 80, 80)' },
+                                { title: 'Streetwear', value: streetwearValue, color: 'rgb(255, 188, 62)' },
+                                { title: 'Electronics', value: electronicsValue, color: 'rgb(93, 201, 93)' },
+                                { title: 'Collectibles', value: collectiblesValue, color: 'rgb(163, 163, 163)' },
+                                { title: 'Other', value: otherValue, color: 'rgb(179, 110, 206)' },
+                            ]}
+                            label={({ x, y, dx, dy, dataEntry }) => (
+                                <text
+                                x={x}
+                                y={y}
+                                dx={dx}
+                                dy={dy}
+                                dominant-baseline="central"
+                                text-anchor="middle"
+                                style={{
+                                    fontSize: '5px',
+                                    fontFamily: 'sans-serif',
+                                    fontWeight: 'bold',
+                                }}
+                                >
+                                {Math.round(dataEntry.percentage) + '%'}
+                                </text>
+                            )}
+                        />
+                    </div>
+                </div>
+                <div className={styles.legend}>
+                    <div className={styles.legend_row_one}>
+                        <div className={styles.legend_col}>
+                            <div className={styles.sneakers_dot}>
+                                <BsDot />
+                            </div>
+                            <a>Sneakers</a>
+                        </div>
+                        <div className={styles.legend_col}>
+                            <div className={styles.streetwear_dot}>
+                                <BsDot />
+                            </div>
+                            <a>Streetwear</a>
+                        </div>
+                        <div className={styles.legend_col}>
+                            <div className={styles.electronics_dot}>
+                                <BsDot />
+                            </div>
+                            <a>Electronics</a>
+                        </div>
+                    </div>
+                    <div className={styles.legend_row_two}>
+                        <div className={styles.legend_col}>
+                            <div className={styles.collectibles_dot}>
+                                <BsDot />
+                            </div>
+                            <a>Collectibles</a>
+                        </div>
+                        <div className={styles.legend_col}>
+                            <div className={styles.other_dot}>
+                                <BsDot />
+                            </div>
+                            <a>Other</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     )

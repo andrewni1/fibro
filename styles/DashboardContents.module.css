@@ -15,8 +15,7 @@
 }
 
 .user_card {
-    background-image: linear-gradient(to top, #161624, #161624, #161724, #171725, #171725, #181827, #181928, #191a2a, #1b1c2d, #1d1e31, #1f2034, #212238);
-    background-color: #1d1e31;
+    background-image: linear-gradient(to top right, #1d1e31, rgb(40, 50, 82));
     border: 2.5px solid #303146;
     height: 200px;
     border-radius: 20px;
@@ -33,7 +32,7 @@
 }
 
 .user_card_name {
-    color: #9899b8;
+    color: #749af2;
     font-size: 50px;
     font-weight: 550;
 }
@@ -75,6 +74,12 @@
     margin-top: 22px;
 }
 
+.icon_tag {
+    font-size: 40px;
+    color: white;
+    margin-top: 26px;
+}
+
 .content_title {
     color: white;
     font-size: 16px;
@@ -100,10 +105,6 @@
 .summary_card_second_col {
     width: 80%;
     margin-top: 21px;
-}
-
-.summary_card_icon {
-    
 }
 
 
@@ -171,4 +172,68 @@
     margin-top: 5px;
     margin-bottom: 5px;
     border-radius: 16px;
+}
+
+.third_row_container {
+    margin-top: 15px;
+    margin-right: 15px;
+    border-radius: 15px;
+    background-color: #1d1e31;
+    border: 2.5px solid #303146;
+    height: 752px;
+}
+
+.inventory_summary {
+    color: white;
+    text-align: center;
+}
+
+.pie_row {
+    height: 500px;
+    width: 500px;
+    margin-left: 480px;
+}
+
+.legend_row_one {
+    display: flex;
+    padding-top: 40px;
+    padding-left: 555px;
+}
+
+.legend_row_two {
+    padding-top: 20px;
+    display: flex;
+    padding-left: 620px;
+}
+
+.legend_col {
+    color: white;
+    display: flex;
+    font-weight: 550;
+    padding-right: 20px;
+}
+
+.sneakers_dot {
+    color: rgb(255, 80, 80);
+    font-size: 20px;
+}
+
+.streetwear_dot {
+    color: rgb(255, 188, 62);
+    font-size: 20px;
+}
+
+.electronics_dot {
+    color: rgb(93, 201, 93);
+    font-size: 20px;
+}
+
+.collectibles_dot {
+    color: rgb(163, 163, 163);
+    font-size: 20px;
+}
+
+.other_dot {
+    color: rgb(179, 110, 206);
+    font-size: 20px;
 }

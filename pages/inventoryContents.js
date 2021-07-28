@@ -197,23 +197,33 @@ export default function InventoryContents() {
                                             )
                                         } else if (activeGroup == "Sneakers") {
                                             return (
-                                                <GiRunningShoe />
+                                                <div className={styles.sneakers_icon}>
+                                                    <GiRunningShoe />
+                                                </div>
                                             )
                                         } else if (activeGroup == "Streetwear") {
                                             return (
-                                                <IoShirtOutline />
+                                                <div className={styles.streetwear_icon}>
+                                                    <IoShirtOutline />
+                                                </div>
                                             )
                                         } else if (activeGroup == "Electronics") {
                                             return (
-                                                <FiCpu />
+                                                <div className={styles.electronics_icon}>
+                                                    <FiCpu />
+                                                </div>
                                             )
                                         } else if (activeGroup == "Collectibles") {
                                             return (
-                                                <FiArchive />
+                                                <div className={styles.collectibles_icon}>
+                                                    <FiArchive />
+                                                </div>
                                             )
                                         } else if (activeGroup == "Other") {
                                             return (
-                                                <FiBox />
+                                                <div className={styles.other_icon}>
+                                                    <FiBox />
+                                                </div>
                                             )
                                         }
                                         
@@ -262,7 +272,9 @@ export default function InventoryContents() {
                                     <button onClick={changeToSneakers} className={styles.group_button}>
                                         <div title="Sneakers" className={styles.button_contents}>
                                             <div title="Sneakers" className={styles.group_icon}>
-                                                <GiRunningShoe />
+                                                <div className={styles.sneakers_icon}>
+                                                    <GiRunningShoe />
+                                                </div>
                                             </div>
                                             <div title="Sneakers" className={styles.group_number}>
                                                 {sneakerCount}
@@ -272,7 +284,9 @@ export default function InventoryContents() {
                                     <button onClick={changeToStreetwear} className={styles.group_button}>
                                         <div title="Streetwear" className={styles.button_contents}>
                                             <div title="Streetwear" className={styles.group_icon}>
-                                                <IoShirtOutline />
+                                                <div className={styles.streetwear_icon}>
+                                                    <IoShirtOutline />
+                                                </div>
                                             </div>
                                             <div title="Streetwear" className={styles.group_number}>
                                                 {streetwearCount}
@@ -284,7 +298,9 @@ export default function InventoryContents() {
                                     <button onClick={changeToElectronics} className={styles.group_button}>
                                         <div title="Electronics" className={styles.button_contents}>
                                             <div title="Electronics" className={styles.group_icon}>
-                                                <FiCpu />
+                                                <div className={styles.electronics_icon}>
+                                                    <FiCpu />
+                                                </div>
                                             </div>
                                             <div title="Electronics" className={styles.group_number}>
                                                 {electronicsCount}
@@ -294,7 +310,9 @@ export default function InventoryContents() {
                                     <button onClick={changeToCollectibles} className={styles.group_button}>
                                         <div title="Collectibles" className={styles.button_contents}>
                                             <div title="Collectibles" className={styles.group_icon}>
-                                                <FiArchive />
+                                                <div className={styles.collectibles_icon}>
+                                                    <FiArchive />
+                                                </div>
                                             </div>
                                             <div title="Collectibles" className={styles.group_number}>
                                                 {collectiblesCount}
@@ -304,7 +322,9 @@ export default function InventoryContents() {
                                     <button onClick={changeToOther} className={styles.group_button}>
                                         <div title="Other" className={styles.button_contents}>
                                             <div title="Other" className={styles.group_icon}>
-                                                <FiBox />
+                                                <div className={styles.other_icon}>
+                                                    <FiBox />
+                                                </div>
                                             </div>
                                             <div title="Other" className={styles.group_number}>
                                                 {otherCount}
