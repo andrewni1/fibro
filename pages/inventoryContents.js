@@ -4,7 +4,7 @@ import { useAuthState } from "react-firebase-hooks/auth"
 import Auth from '../components/Auth'
 import styles from '../styles/InventoryContents.module.css'
 import style from '../styles/Modal.module.css'
-import { FiEdit, FiTrash, FiPackage, FiBox, FiCpu, FiArchive, FiGlobe } from "react-icons/fi";
+import { FiEdit, FiTrash, FiPackage, FiBox, FiCpu, FiArchive, FiGlobe, FiX } from "react-icons/fi";
 import { GiRunningShoe } from "react-icons/gi"
 import { IoShirtOutline } from "react-icons/io5"
 import Modal from 'react-modal'
@@ -342,8 +342,21 @@ export default function InventoryContents() {
                     <Modal ariaHideApp={false} isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)} className={style.modal}>
                         <div className={style.modal_content}>
                             <form onSubmit={handleSubmit}>
-                                <input type="text" placeholder="Product Name" onChange={saveItemName} required />
-                                <select  onChange={saveSize} defaultValue="" required>
+                                <div>
+                                    <div onClick={() => setModalIsOpen(false)} className={style.close_icon}>
+                                        <FiX />
+                                    </div>
+                                    <div className={style.add_item}>
+                                        <a>Add Item</a>
+                                    </div>
+                                </div>
+                                <div className={style.input_header}>
+                                    <a>PRODUCT NAME</a>
+                                </div>
+                                <div className={style.name_box}>
+                                    <input type="text" placeholder="Product name" onChange={saveItemName} required/>
+                                </div>
+                                <select onChange={saveSize} defaultValue="" required>
                                     <option disabled={true} value="">Size</option>
                                     <option onChange={saveSize}>N/A</option>
                                     <option onChange={saveSize}>3.5</option>

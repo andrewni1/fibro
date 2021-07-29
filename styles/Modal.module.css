@@ -1,24 +1,58 @@
 .modal {
-    background-color: #1c1f30;
     position: absolute;
-    height: 500px;
-    width: 500px;
-    overflow: auto;
-    border-radius: 4px;
-    outline: none;
-    padding: 20px;
+    top: 25%;
+    left: 40%;
+    margin-top: -100px;
+    margin-left: -50px;
+    height: 800px;
+    width: 700px;
 }
 
 .modal_content {
+    background-color: #1c1f30;
     position: absolute;
     top: 40px;
     left: 40px;
     right: 40px;
     bottom: 40px;
-    border: 1px solid #ccc;
-    background: #fff;
     overflow: auto;
-    border-radius: 4px;
+    border-radius: 6px;
     outline: none;
-    padding: 20px;
+    padding-top: 30px;
+    padding-bottom: 40px;
+    padding-right: 40px;
+    padding-left: 40px;
+}
+
+.add_item {
+    color: white;
+    font-weight: 550;
+    font-size: 25px;
+    padding-top: 20px;
+    margin-bottom: 15px;
+    display: flex;
+}
+
+.close_icon {
+    float: right;
+    color: white;
+    font-weight: 550;
+    font-size: 25px;
+    color: #999999;
+}
+
+.close_icon:hover {
+    cursor: pointer;
+}
+
+.input_header {
+    font-size: 14px;
+    color: #676d9c;
+    font-weight: 550;
+}
+
+.name_box {
+    border: none;
+    width: 100%;
+    background-color: #1c1f30;
 }
