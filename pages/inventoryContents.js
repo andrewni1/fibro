@@ -347,7 +347,7 @@ export default function InventoryContents() {
                                         <FiX />
                                     </div>
                                     <div className={style.add_item}>
-                                        <a>Add Item</a>
+                                        <a>Item Adder</a>
                                     </div>
                                 </div>
                                 <div className={style.input_header}>
@@ -359,6 +359,12 @@ export default function InventoryContents() {
                                 <select onChange={saveSize} defaultValue="" required>
                                     <option disabled={true} value="">Size</option>
                                     <option onChange={saveSize}>N/A</option>
+                                    <option onChange={saveSize}>XS</option>
+                                    <option onChange={saveSize}>S</option>
+                                    <option onChange={saveSize}>M</option>
+                                    <option onChange={saveSize}>L</option>
+                                    <option onChange={saveSize}>XL</option>
+                                    <option onChange={saveSize}>XXL</option>
                                     <option onChange={saveSize}>3.5</option>
                                     <option onChange={saveSize}>4</option>
                                     <option onChange={saveSize}>4.5</option>
@@ -372,6 +378,14 @@ export default function InventoryContents() {
                                     <option onChange={saveSize}>9</option>
                                     <option onChange={saveSize}>9.5</option>
                                     <option onChange={saveSize}>10</option>
+                                    <option onChange={saveSize}>10.5</option>
+                                    <option onChange={saveSize}>11</option>
+                                    <option onChange={saveSize}>11.5</option>
+                                    <option onChange={saveSize}>12</option>
+                                    <option onChange={saveSize}>12.5</option>
+                                    <option onChange={saveSize}>13</option>
+                                    <option onChange={saveSize}>13.5</option>
+                                    <option onChange={saveSize}>14</option>
                                 </select>
                                 <select onChange={saveGroup} defaultValue="" required>
                                     <option disabled={true} value="">Group</option>

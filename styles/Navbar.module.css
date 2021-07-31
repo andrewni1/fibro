@@ -1,3 +1,82 @@
 .nav_wrapper {
     height: 100%;
+    min-width: 100vh;
+}
+
+.nav_menu {
+    text-decoration: none;
+    padding-top: 2.5%;
+    display: flex;
+}
+
+.nav_col_one {
+    width: 37.5%;
+}
+
+.nav_col_two {
+    width: 25%;
+    display: flex;
+    text-align: center;
+    justify-content: space-between;
+}
+
+.nav_col_three {
+    width: 37.5%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.nav_right {
+    font-weight: 550;
+    font-size: 14px;
+    text-decoration-style: solid;
+    text-decoration: none;
+    color: #6B9FFF;
+  }
+  
+.nav_left {
+    font-weight: 750;
+    font-size: 18px;
+    padding-top: 5%;
+    text-decoration-style: solid;
+    text-decoration: none;
+    color: #FFFFFF;
+}
+  
+.nav_middle {
+    font-weight: 600;
+    font-size: 16px;
+    padding-top: 5%;
+    text-decoration-style: solid;
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+.dash_wrapper {
+    display: flex;
+    text-align: center;
+    padding: 6px;
+}
+
+.dash_wrapper:hover {
+    background-color: #6198ff0e;
+    border-radius: 6px;
+}
+
+.dash_icon {
+    color: #6B9FFF;
+    font-size: 20px;
+    padding-top: 5px;
+}
+
+.dash_text {
+    padding-top: 5%;
+    padding-left: 5%;
+}
+
+.dash_icon_wrapper {
+    border: 1px solid #6B9FFF;
+    border-radius: 50%;
+    height: 35px;
+    width: 40px;
 }

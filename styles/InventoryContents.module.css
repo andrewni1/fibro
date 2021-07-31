@@ -259,6 +259,11 @@
     margin-top: 20px;
 }
 
+.search_bar:focus {
+    border: 2px solid #5168a0;
+    color: #595c83;
+}
+
 .utility_bar {
     display: flex;
     align-items: center;
