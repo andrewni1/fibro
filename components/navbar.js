@@ -16,16 +16,18 @@ export default function Navbar() {
                     <a className={styles.nav_middle} href="/faq">FAQ</a>
                 </div>
                 <div className={styles.nav_col_three}>
-                    <div className={styles.dash_wrapper}>
-                        <div className={styles.dash_icon_wrapper}>
-                            <div className={styles.dash_icon}>
-                                <HiOutlineViewGrid />
+                    <a className={styles.dash} href="/dashboard">
+                        <div className={styles.dash_wrapper}>
+                            <div className={styles.dash_icon_wrapper}>
+                                <div className={styles.dash_icon}>
+                                    <HiOutlineViewGrid />
+                                </div>
+                            </div>
+                            <div className={styles.dash_text}>
+                                <a className={styles.nav_right}>Dashboard</a>
                             </div>
                         </div>
-                        <div className={styles.dash_text}>
-                            <a className={styles.nav_right} href="/dashboard">Dashboard</a>
-                        </div>
-                    </div>
+                    </a>
                 </div>
             </div>
         </div>

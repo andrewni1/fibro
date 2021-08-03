@@ -350,55 +350,63 @@ export default function InventoryContents() {
                                         <a>Item Adder</a>
                                     </div>
                                 </div>
-                                <div className={style.input_header}>
-                                    <a>PRODUCT NAME</a>
+                                <a className={style.input_header}>PRODUCT NAME</a>
+                                <input className={style.name_box} type="text" placeholder="Product name" onChange={saveItemName} required/>
+                                <div className={style.input_grid}>
+                                    <div className={style.price_col}>
+                                        <a className={style.input_header}>PURCHASE PRICE</a>
+                                        <input type="number" className={style.price_box} placeholder="Price" onChange={savePrice} required />
+                                    </div>
+                                    <div className={style.size_col}>
+                                        <a className={style.input_header}>SIZE</a>
+                                        <select className={style.size_box} onChange={saveSize} defaultValue="" required>
+                                            <option disabled={true} value="">Size</option>
+                                            <option onChange={saveSize}>N/A</option>
+                                            <option onChange={saveSize}>XS</option>
+                                            <option onChange={saveSize}>S</option>
+                                            <option onChange={saveSize}>M</option>
+                                            <option onChange={saveSize}>L</option>
+                                            <option onChange={saveSize}>XL</option>
+                                            <option onChange={saveSize}>XXL</option>
+                                            <option onChange={saveSize}>3.5</option>
+                                            <option onChange={saveSize}>4</option>
+                                            <option onChange={saveSize}>4.5</option>
+                                            <option onChange={saveSize}>5</option>
+                                            <option onChange={saveSize}>5.5</option>
+                                            <option onChange={saveSize}>6</option>
+                                            <option onChange={saveSize}>6.5</option>
+                                            <option onChange={saveSize}>7.5</option>
+                                            <option onChange={saveSize}>8</option>
+                                            <option onChange={saveSize}>8.5</option>
+                                            <option onChange={saveSize}>9</option>
+                                            <option onChange={saveSize}>9.5</option>
+                                            <option onChange={saveSize}>10</option>
+                                            <option onChange={saveSize}>10.5</option>
+                                            <option onChange={saveSize}>11</option>
+                                            <option onChange={saveSize}>11.5</option>
+                                            <option onChange={saveSize}>12</option>
+                                            <option onChange={saveSize}>12.5</option>
+                                            <option onChange={saveSize}>13</option>
+                                            <option onChange={saveSize}>13.5</option>
+                                            <option onChange={saveSize}>14</option>
+                                        </select>
+                                    </div>
+                                    <div className={style.group_col}>
+                                        <a className={style.input_header}>GROUP</a>
+                                        <select className={style.group_box} onChange={saveGroup} defaultValue="" required>
+                                            <option disabled={true} value="">Group</option>
+                                            <option onChange={saveGroup}>Sneakers</option>
+                                            <option onChange={saveGroup}>Streetwear</option>
+                                            <option onChange={saveGroup}>Electronics</option>
+                                            <option onChange={saveGroup}>Collectibles</option>
+                                            <option onChange={saveGroup}>Other</option>
+                                        </select>
+                                    </div>
                                 </div>
-                                <div className={style.name_box}>
-                                    <input type="text" placeholder="Product name" onChange={saveItemName} required/>
+                                <div className={style.buttons}>
+                                    <button className={style.add_box} type="submit" >Add Item</button>
                                 </div>
-                                <select onChange={saveSize} defaultValue="" required>
-                                    <option disabled={true} value="">Size</option>
-                                    <option onChange={saveSize}>N/A</option>
-                                    <option onChange={saveSize}>XS</option>
-                                    <option onChange={saveSize}>S</option>
-                                    <option onChange={saveSize}>M</option>
-                                    <option onChange={saveSize}>L</option>
-                                    <option onChange={saveSize}>XL</option>
-                                    <option onChange={saveSize}>XXL</option>
-                                    <option onChange={saveSize}>3.5</option>
-                                    <option onChange={saveSize}>4</option>
-                                    <option onChange={saveSize}>4.5</option>
-                                    <option onChange={saveSize}>5</option>
-                                    <option onChange={saveSize}>5.5</option>
-                                    <option onChange={saveSize}>6</option>
-                                    <option onChange={saveSize}>6.5</option>
-                                    <option onChange={saveSize}>7.5</option>
-                                    <option onChange={saveSize}>8</option>
-                                    <option onChange={saveSize}>8.5</option>
-                                    <option onChange={saveSize}>9</option>
-                                    <option onChange={saveSize}>9.5</option>
-                                    <option onChange={saveSize}>10</option>
-                                    <option onChange={saveSize}>10.5</option>
-                                    <option onChange={saveSize}>11</option>
-                                    <option onChange={saveSize}>11.5</option>
-                                    <option onChange={saveSize}>12</option>
-                                    <option onChange={saveSize}>12.5</option>
-                                    <option onChange={saveSize}>13</option>
-                                    <option onChange={saveSize}>13.5</option>
-                                    <option onChange={saveSize}>14</option>
-                                </select>
-                                <select onChange={saveGroup} defaultValue="" required>
-                                    <option disabled={true} value="">Group</option>
-                                    <option onChange={saveGroup}>Sneakers</option>
-                                    <option onChange={saveGroup}>Streetwear</option>
-                                    <option onChange={saveGroup}>Electronics</option>
-                                    <option onChange={saveGroup}>Collectibles</option>
-                                    <option onChange={saveGroup}>Other</option>
-                                </select>
-                                <input type="number" placeholder="Price Paid" onChange={savePrice} required />
-                                <button type="submit" >Create Item</button>
                             </form>
-                            <button onClick={() => setModalIsOpen(false)}>Close</button>
                         </div>
                     </Modal>
                 </div>

@@ -24,6 +24,7 @@
     width: 37.5%;
     display: flex;
     justify-content: flex-end;
+    text-decoration: none;
 }
 
 .nav_right {
@@ -79,4 +80,8 @@
     border-radius: 50%;
     height: 35px;
     width: 40px;
+}
+
+.dash {
+    text-decoration: none;
 }

@@ -3,12 +3,25 @@
   margin-bottom: 100px;
 }
 
+.home {
+  background-color: #151724;
+  min-width: 100vh;
+  padding-left: 25%;
+  padding-right: 25%;
+}
+
+.home_section {
+  width: 45%;
+}
+
 .title {
   color:#FFFFFF;
   font-size: 47.5px;
   line-height: 68px;
   margin-bottom: 30px;
   font-weight: 700;
+  padding-top: 150px;
+  padding-bottom: 15px;
 }
 
 .desc {
@@ -19,11 +32,20 @@
   font-size: 22px;
 }
 
-.home {
+.home_buttons {
   background-color: #151724;
-  min-width: 100vh;
-  padding-left: 25%;
-  padding-right: 25%;
+  border: 1px solid #6B9FFF;
+  color: #6B9FFF;
+  height: 45px;
+  width: 100px;
+  margin-right: 10px;
+  font-size: 16px;
+  border-radius: 4px;
+  margin-top: 40px;
+}
+
+.home_buttons:hover {
+  cursor: pointer;
 }
 
 .feature {
