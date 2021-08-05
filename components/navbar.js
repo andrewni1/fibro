@@ -12,7 +12,7 @@ export default function Navbar() {
                 <div className={styles.nav_col_two}>
                     <a className={styles.nav_middle} href="/">Home</a>
                     <a className={styles.nav_middle} href="/features">Features</a>
-                    <a className={styles.nav_middle} href="/about">About</a>
+                    
                     <a className={styles.nav_middle} href="/faq">FAQ</a>
                 </div>
                 <div className={styles.nav_col_three}>

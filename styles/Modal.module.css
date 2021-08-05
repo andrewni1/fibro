@@ -56,13 +56,18 @@
     height: 50px;
     border: 2px solid #27273b;
     background-color: #171725;
-    color: #27273b;
+    color: #666c9c;
     font-size: 14px;
     font-weight: 550;
     padding-left: 10px;
     border-radius: 5px;
     margin-right: 15px;
     margin-bottom: 10px;
+}
+
+.name_box:focus {
+    outline: none !important;
+    border: 2px solid #5168a0;
 }
 
 .size_box {
@@ -70,13 +75,36 @@
     height: 50px;
     border: 2px solid #27273b;
     background-color: #171725;
-    color: #27273b;
+    color: #666c9c;
     font-size: 14px;
     font-weight: 550;
     padding-left: 10px;
     border-radius: 5px;
     margin-right: 15px;
     margin-bottom: 10px;
+}
+
+.size_box:focus {
+    outline: none !important;
+    border: 2px solid #5168a0;
+}
+
+.size_box::-webkit-scrollbar-track
+{
+    display: none;
+}
+
+.size_box::-webkit-scrollbar
+{
+	width: 10px;
+}
+
+.size_box::-webkit-scrollbar-thumb
+{
+	border-radius: 10px;
+    height: 20px;
+	background-color: #1e1d32;
+    border: 4px solid rgba(0, 0, 0, 0);
 }
 
 .group_box {
@@ -84,7 +112,7 @@
     height: 50px;
     border: 2px solid #27273b;
     background-color: #171725;
-    color: #27273b;
+    color: #666c9c;
     font-size: 14px;
     font-weight: 550;
     padding-left: 10px;
@@ -93,18 +121,34 @@
     margin-bottom: 10px;
 }
 
+.group_box:focus {
+    outline: none !important;
+    border: 2px solid #5168a0;
+}
+
 .price_box {
     width: 95%;
     height: 50px;
     border: 2px solid #27273b;
     background-color: #171725;
-    color: #27273b;
+    color: #666c9c;
     font-size: 14px;
     font-weight: 550;
     padding-left: 10px;
     border-radius: 5px;
     margin-right: 15px;
     margin-bottom: 10px;
+}
+
+.price_box:focus {
+    outline: none !important;
+    border: 2px solid #5168a0;
+}
+
+.price_box::-webkit-outer-spin-button,
+.price_box::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .input_grid {
@@ -146,4 +190,8 @@
     color: white;
     font-weight: 550;
     font-size: 14px;
+}
+
+.add_box:hover {
+    cursor: pointer;
 }

@@ -11,7 +11,6 @@ export default function Footer() {
                         <div className={styles.content_container}>
                             <a className={styles.footer_link} href="/">Home</a>
                             <a className={styles.footer_link} href="/">Features</a>
-                            <a className={styles.footer_link} href="/">About</a>
                             <a className={styles.footer_link} href="/">FAQ</a>
                         </div>
                     </div>

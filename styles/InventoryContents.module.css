@@ -260,8 +260,9 @@
 }
 
 .search_bar:focus {
+    outline: none !important;
     border: 2px solid #5168a0;
-    color: #595c83;
+    color: #666c9c;
 }
 
 .utility_bar {
