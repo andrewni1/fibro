@@ -164,6 +164,7 @@ export default function DashContentsOne() {
                                 dominant-baseline="central"
                                 text-anchor="middle"
                                 style={{
+                                    fill: "#fff",
                                     fontSize: '5px',
                                     fontFamily: 'sans-serif',
                                     fontWeight: 'bold'

@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link'
 import styles from '../styles/SideNav.module.css'
-import { FiGrid, FiPackage, FiBriefcase, FiCreditCard, FiInbox, FiKey } from "react-icons/fi";
+import { FiGrid, FiPackage, FiTrendingUp, FiCreditCard, FiInbox, FiKey } from "react-icons/fi";
 
 export default function SideNav() {
     return (
@@ -16,7 +16,7 @@ export default function SideNav() {
                 </Link>
                 <br />
                 <Link as="/sales" href="/sales">
-                    <button title="Sales" className={styles.nav_icon}><FiBriefcase /></button>
+                    <button title="Sales" className={styles.nav_icon}><FiTrendingUp /></button>
                 </Link>
                 <br />
                 <Link as="/expenses" href="/expenses">

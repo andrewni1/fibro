@@ -1,4 +1,4 @@
-import DashboardContents from './dashboardContents'
+import DashboardContents from '../components/dashboardContents'
 import styles from '../styles/Page.module.css'
 import SideNav from '../components/sidenav'
 

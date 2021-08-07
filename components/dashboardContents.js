@@ -1,6 +1,6 @@
 import styles from '../styles/DashboardContents.module.css'
-import DashContentsOne from '../components/dashContentsOne'
-import DashContentsTwo from '../components/dashContentsTwo'
+import DashContentsOne from './dashContentsOne'
+import DashContentsTwo from './dashContentsTwo'
 
 export default function DashboardContents() {
     return (
