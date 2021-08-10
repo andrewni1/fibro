@@ -119,6 +119,17 @@
     cursor: pointer;
 }
 
+.sales_button {
+    background-color: #1d1f33;
+    border: none;
+    font-size: 20px;
+    color: #4cb85e;
+}
+
+.sales_button:hover {
+    cursor: pointer;
+}
+
 .edit_button {
     background-color: #1d1f33;
     border: none;
