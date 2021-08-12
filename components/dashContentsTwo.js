@@ -37,7 +37,7 @@ export default function DashContentsTwo() {
                         </div>
                         {
                             items.map(item => {
-                                if(item.userId === user.uid) {
+                                if(item.userId === user.uid && item.sold == false) {
                                     return (
                                         <div key={item.id} className={styles.table_contents}>
                                             <div className={styles.recently_added_table_row}>
@@ -72,7 +72,7 @@ export default function DashContentsTwo() {
                             </div>
                             {
                                 items.map(item => {
-                                    if(item.userId === user.uid) {
+                                    if(item.userId === user.uid && item.sold == true) {
                                         return (
                                             <div key={item.id} className={styles.table_contents}>
                                                 <div className={styles.recently_added_table_row}>

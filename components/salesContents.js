@@ -53,7 +53,7 @@ export default function SalesContents() {
         }, []);
 
     items.map(item => {
-        if (item.userId === user.uid) {
+        if (item.userId === user.uid && item.sold == true) {
             if (item.group == "Sneakers") {
                 itemCount = itemCount + 1;
                 sneakerCount = sneakerCount + 1;
@@ -428,7 +428,7 @@ export default function SalesContents() {
                     <div className={styles.content_container}>
                         {
                             items.map(item => {
-                                if(item.userId === user.uid) {
+                                if(item.userId === user.uid && item.sold == true) {
                                     return (
                                         <div key={item.id} className={styles.table_contents}>
                                             <div className={styles.name_column}>

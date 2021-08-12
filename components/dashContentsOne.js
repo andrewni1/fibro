@@ -16,6 +16,7 @@ export default function DashContentsOne() {
     var electronicsCount = 0;
     var collectiblesCount = 0;
     var otherCount = 0;
+    var sales = 0;
 
     var allValue = 0;
     var sneakerValue = 0;
@@ -23,8 +24,7 @@ export default function DashContentsOne() {
     var electronicsValue = 0;
     var collectiblesValue = 0;
     var otherValue = 0;
-
-    var sneakerPercent = (sneakerValue / allValue) * 100;
+    var salesValue = 0;
 
     useEffect(() => {
             firebase.firestore()
@@ -40,33 +40,36 @@ export default function DashContentsOne() {
         }, []);
 
     items.map(item => {
-        if (item.userId === user.uid) {
+        if (item.userId === user.uid && item.sold == false) {
             if (item.group == "Sneakers") {
                 itemCount = itemCount + 1;
                 sneakerCount = sneakerCount + 1;
-                allValue = allValue + parseInt(item.pricePaid);
-                sneakerValue = sneakerValue + parseInt(item.pricePaid);
+                allValue = allValue + parseFloat(item.pricePaid);
+                sneakerValue = sneakerValue + parseFloat(item.pricePaid);
             } else if (item.group == "Streetwear") {
                 itemCount = itemCount + 1;
                 streetwearCount = streetwearCount + 1;
-                allValue = allValue + parseInt(item.pricePaid);
-                streetwearValue = streetwearValue + parseInt(item.pricePaid);
+                allValue = allValue + parseFloat(item.pricePaid);
+                streetwearValue = streetwearValue + parseFloat(item.pricePaid);
             } else if (item.group == "Electronics") {
                 itemCount = itemCount + 1;
                 electronicsCount = electronicsCount + 1;
-                allValue = allValue + parseInt(item.pricePaid);
-                electronicsValue = electronicsValue + parseInt(item.pricePaid);
+                allValue = allValue + parseFloat(item.pricePaid);
+                electronicsValue = electronicsValue + parseFloat(item.pricePaid);
             } else if (item.group == "Collectibles") {
                 itemCount = itemCount + 1;
                 collectiblesCount = collectiblesCount + 1;
-                allValue = allValue + parseInt(item.pricePaid);
-                collectiblesValue = collectiblesValue + parseInt(item.pricePaid);
+                allValue = allValue + parseFloat(item.pricePaid);
+                collectiblesValue = collectiblesValue + parseFloat(item.pricePaid);
             } else if (item.group == "Other") {
                 itemCount = itemCount + 1;
                 otherCount = otherCount + 1;
-                allValue = allValue + parseInt(item.pricePaid);
-                otherValue = otherValue + parseInt(item.pricePaid);
+                allValue = allValue + parseFloat(item.pricePaid);
+                otherValue = otherValue + parseFloat(item.pricePaid);
             }
+        } else if (item.userId === user.uid && item.sold == true) {
+            salesValue = salesValue + parseFloat(item.salePrice)
+            sales++
         }
     })
 
@@ -121,7 +124,7 @@ export default function DashContentsOne() {
                     <div className={styles.summary_card_second_col}>
                         <a className={styles.content_title}>Sales</a>
                         <br />
-                        <a className={styles.content_main}>20</a>
+                        <a className={styles.content_main}>{sales}</a>
                         <br />
                         <a className={styles.content_desc}>Total Sales</a>
                     </div>
@@ -137,7 +140,7 @@ export default function DashContentsOne() {
                     <div className={styles.summary_card_second_col}>
                         <a className={styles.content_title}>Sales Value</a>
                         <br />
-                        <a className={styles.content_main}>$92</a>
+                        <a className={styles.content_main}>${salesValue}</a>
                         <br />
                         <a className={styles.content_desc}>Total Sales Value</a>
                     </div>
