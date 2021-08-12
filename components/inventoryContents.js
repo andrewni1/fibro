@@ -15,10 +15,11 @@ export default function InventoryContents() {
     const [user, loading, error] = useAuthState(firebase.auth())
     const [items, setItems] = useState([])
 
-    const [itemName, setItemName] = useState([])
+    const [itemName, setItemName] = useState('')
     const [size, setSize] = useState('')
     const [group, setGroup] = useState('')
-    const [price, setPrice] = useState([])
+    const [price, setPrice] = useState('')
+    const [salePrice, setSalePrice] = useState('0')
 
     const [modalIsOpen, setModalIsOpen] = useState(false)
     const [editModalOpen, setEditModalOpen] = useState(false)
@@ -119,7 +120,8 @@ export default function InventoryContents() {
                 group: group,
                 pricePaid: price,
                 sold: false,
-                date: new Date()
+                date: new Date(),
+                salePrice: salePrice,
           });
     }
 
@@ -535,6 +537,12 @@ export default function InventoryContents() {
                                                 </div>
                                             </Modal>
                                             <button className={styles.sales_button} onClick={() => {
+                                                console.log(item.id)
+                                                setItemName(item.itemName)
+                                                console.log(itemName)
+                                                setSize(item.size)
+                                                console.log(item.group)
+                                                console.log(item.pricePaid)
                                                 setSellModalOpen(true)
                                             }}><MdAttachMoney /></button>
                                             <Modal ariaHideApp={false} isOpen={sellModalOpen} onRequestClose={() => setSellModalOpen(false)} className={style.modal}>
@@ -549,15 +557,15 @@ export default function InventoryContents() {
                                                             </div>
                                                         </div>
                                                         <a className={style.input_header}>PRODUCT NAME</a>
-                                                        <input className={style.name_box} type="text" placeholder="Product name" onChange={saveItemName} required/>
+                                                        <input className={style.name_box} type="text" placeholder="Product name" onChange={saveItemName} value={item.itemName} required/>
                                                         <div className={style.input_grid}>
                                                             <div className={style.price_col}>
                                                                 <a className={style.input_header}>PURCHASE PRICE</a>
-                                                                <input type="number" step=".01" className={style.price_box} placeholder="Price" onChange={savePrice} required />
+                                                                <input type="number" step=".01" className={style.price_box} placeholder="Price" onChange={savePrice} value={item.pricePaid} required />
                                                             </div>
                                                             <div className={style.size_col}>
                                                                 <a className={style.input_header}>SIZE</a>
-                                                                <select className={style.size_box} onChange={saveSize} required>
+                                                                <select className={style.size_box} onChange={saveSize} value={item.size} required>
                                                                     <option disabled={true} value="">Size</option>
                                                                     <option onChange={saveSize}>N/A</option>
                                                                     <option onChange={saveSize}>XS</option>
@@ -591,7 +599,7 @@ export default function InventoryContents() {
                                                             </div>
                                                             <div className={style.group_col}>
                                                                 <a className={style.input_header}>GROUP</a>
-                                                                <select className={style.group_box} onChange={saveGroup} defaultValue={item.id.group} required>
+                                                                <select className={style.group_box} onChange={saveGroup} defaultValue={item.id.group} value={item.group} required>
                                                                     <option disabled={true} value="">Group</option>
                                                                     <option onChange={saveGroup}>Sneakers</option>
                                                                     <option onChange={saveGroup}>Streetwear</option>
@@ -601,6 +609,10 @@ export default function InventoryContents() {
                                                                 </select>
                                                             </div>
                                                         </div>
+                                                        <div className={style.price_col}>
+                                                            <a className={style.input_header}>SALE PRICE</a>
+                                                            <input type="number" step=".01" className={style.price_box} placeholder="Sale Price" onChange={setSalePrice} required />
+                                                        </div>
                                                         <div className={style.buttons}>
                                                             <button className={style.add_box} type="submit" onClick={() => {
                                                                 firebase
@@ -609,9 +621,11 @@ export default function InventoryContents() {
                                                                     .doc(item.id)
                                                                     .update({
                                                                         sold: true,
+                                                                        salePrice: salePrice,
                                                                     })
                                                                     .then(() => {
                                                                         console.log(item.id)
+                                                                        console.log(salePrice)
                                                                     })
                                                             }}>Sell</button>
                                                         </div>
