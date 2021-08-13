@@ -41,6 +41,12 @@ export default function InventoryContents() {
     var electronicsValue = 0;
     var collectiblesValue = 0;
     var otherValue = 0;
+    var allValue1 = 0;
+    var sneakerValue1 = 0;
+    var streetwearValue1 = 0;
+    var electronicsValue1 = 0;
+    var collectiblesValue1 = 0;
+    var otherValue1 = 0;
 
 
     useEffect(() => {
@@ -61,29 +67,37 @@ export default function InventoryContents() {
             if (item.group == "Sneakers") {
                 itemCount = itemCount + 1;
                 sneakerCount = sneakerCount + 1;
-                allValue = allValue + parseFloat(item.pricePaid);
-                sneakerValue = sneakerValue + parseFloat(item.pricePaid);
+                allValue1 = allValue1 + parseFloat(item.pricePaid);
+                sneakerValue1 = sneakerValue1 + parseFloat(item.pricePaid);
             } else if (item.group == "Streetwear") {
                 itemCount = itemCount + 1;
                 streetwearCount = streetwearCount + 1;
-                allValue = allValue + parseFloat(item.pricePaid);
-                streetwearValue = streetwearValue + parseFloat(item.pricePaid);
+                allValue1 = allValue1 + parseFloat(item.pricePaid);
+                streetwearValue1 = streetwearValue1 + parseFloat(item.pricePaid);
             } else if (item.group == "Electronics") {
                 itemCount = itemCount + 1;
                 electronicsCount = electronicsCount + 1;
-                allValue = allValue + parseFloat(item.pricePaid);
-                electronicsValue = electronicsValue + parseFloat(item.pricePaid);
+                allValue1 = allValue1 + parseFloat(item.pricePaid);
+                electronicsValue1 = electronicsValue1 + parseFloat(item.pricePaid);
             } else if (item.group == "Collectibles") {
                 itemCount = itemCount + 1;
                 collectiblesCount = collectiblesCount + 1;
-                allValue = allValue + parseFloat(item.pricePaid);
-                collectiblesValue = collectiblesValue + parseFloat(item.pricePaid);
+                allValue1 = allValue1 + parseFloat(item.pricePaid);
+                collectiblesValue1 = collectiblesValue1 + parseFloat(item.pricePaid);
             } else if (item.group == "Other") {
                 itemCount = itemCount + 1;
                 otherCount = otherCount + 1;
-                allValue = allValue + parseFloat(item.pricePaid);
-                otherValue = otherValue + parseFloat(item.pricePaid);
+                allValue1 = allValue1 + parseFloat(item.pricePaid);
+                otherValue1 = otherValue1 + parseFloat(item.pricePaid);
             }
+
+            allValue = allValue1.toFixed(2)
+            sneakerValue = sneakerValue1.toFixed(2)
+            streetwearValue = streetwearValue1.toFixed(2)
+            electronicsValue = electronicsValue1.toFixed(2)
+            electronicsValue = electronicsValue1.toFixed(2)
+            collectiblesValue = collectiblesValue1.toFixed(2)
+            otherValue = otherValue1.toFixed(2)
         }
     })
 
@@ -114,6 +128,9 @@ export default function InventoryContents() {
     const handleSubmit = (e) => {
         e.preventDefault()
 
+        var newPrice1 = parseFloat(price)
+        var newPrice = newPrice1.toFixed(2)
+
         firebase
           .firestore()
             .collection('items')
@@ -123,7 +140,7 @@ export default function InventoryContents() {
                 itemName: itemName,
                 size: size,
                 group: group,
-                pricePaid: price,
+                pricePaid: newPrice,
                 sold: false,
                 date: new Date(),
                 salePrice: salePrice,
@@ -149,13 +166,17 @@ export default function InventoryContents() {
     const handleSellSubmit = (e) => {
         e.preventDefault()
 
+        var newSalePrice1 = parseFloat(salePrice)
+        var newSalePrice = newSalePrice1.toFixed(2)
+
         firebase
           .firestore()
             .collection('items')
             .doc(itemID)
             .update({
                 sold: true,
-                salePrice: salePrice,
+                salePrice: newSalePrice,
+                profit: parseFloat(newSalePrice) - parseFloat(price)
           });
     }
 

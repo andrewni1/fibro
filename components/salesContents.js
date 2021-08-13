@@ -14,10 +14,12 @@ export default function SalesContents() {
     const [user, loading, error] = useAuthState(firebase.auth())
     const [items, setItems] = useState([])
 
-    const [itemName, setItemName] = useState([])
+    const [itemID, setItemID] = useState('')
+    const [itemName, setItemName] = useState('')
     const [size, setSize] = useState('')
     const [group, setGroup] = useState('')
-    const [price, setPrice] = useState([])
+    const [price, setPrice] = useState('')
+    const [salePrice, setSalePrice] = useState('')
 
     const [modalIsOpen, setModalIsOpen] = useState(false)
     const [editModalOpen, setEditModalOpen] = useState(false)
@@ -37,6 +39,12 @@ export default function SalesContents() {
     var electronicsValue = 0;
     var collectiblesValue = 0;
     var otherValue = 0;
+    var allValue1 = 0;
+    var sneakerValue1 = 0;
+    var streetwearValue1 = 0;
+    var electronicsValue1 = 0;
+    var collectiblesValue1 = 0;
+    var otherValue1 = 0;
 
 
     useEffect(() => {
@@ -57,29 +65,37 @@ export default function SalesContents() {
             if (item.group == "Sneakers") {
                 itemCount = itemCount + 1;
                 sneakerCount = sneakerCount + 1;
-                allValue = allValue + parseInt(item.pricePaid);
-                sneakerValue = sneakerValue + parseInt(item.pricePaid);
+                allValue1 = allValue1 + parseFloat(item.pricePaid);
+                sneakerValue1 = sneakerValue1 + parseFloat(item.pricePaid);
             } else if (item.group == "Streetwear") {
                 itemCount = itemCount + 1;
                 streetwearCount = streetwearCount + 1;
-                allValue = allValue + parseInt(item.pricePaid);
-                streetwearValue = streetwearValue + parseInt(item.pricePaid);
+                allValue1 = allValue1 + parseFloat(item.pricePaid);
+                streetwearValue1 = streetwearValue1 + parseFloat(item.pricePaid);
             } else if (item.group == "Electronics") {
                 itemCount = itemCount + 1;
                 electronicsCount = electronicsCount + 1;
-                allValue = allValue + parseInt(item.pricePaid);
-                electronicsValue = electronicsValue + parseInt(item.pricePaid);
+                allValue1 = allValue1 + parseFloat(item.pricePaid);
+                electronicsValue1 = electronicsValue1 + parseFloat(item.pricePaid);
             } else if (item.group == "Collectibles") {
                 itemCount = itemCount + 1;
                 collectiblesCount = collectiblesCount + 1;
-                allValue = allValue + parseInt(item.pricePaid);
-                collectiblesValue = collectiblesValue + parseInt(item.pricePaid);
+                allValue1 = allValue1 + parseFloat(item.pricePaid);
+                collectiblesValue1 = collectiblesValue1 + parseFloat(item.pricePaid);
             } else if (item.group == "Other") {
                 itemCount = itemCount + 1;
                 otherCount = otherCount + 1;
-                allValue = allValue + parseInt(item.pricePaid);
-                otherValue = otherValue + parseInt(item.pricePaid);
+                allValue1 = allValue1 + parseFloat(item.pricePaid);
+                otherValue1 = otherValue1 + parseFloat(item.pricePaid);
             }
+
+            allValue = allValue1.toFixed(2)
+            sneakerValue = sneakerValue1.toFixed(2)
+            streetwearValue = streetwearValue1.toFixed(2)
+            electronicsValue = electronicsValue1.toFixed(2)
+            electronicsValue = electronicsValue1.toFixed(2)
+            collectiblesValue = collectiblesValue1.toFixed(2)
+            otherValue = otherValue1.toFixed(2)
         }
     })
 
@@ -103,20 +119,23 @@ export default function SalesContents() {
         setPrice(e.target.value)
     }
 
-    const handleSubmit = (e) => {
+    const saveSalePrice = (e) => {
+        setSalePrice(e.target.value)
+    }
+
+    const handleEditSubmit = (e) => {
         e.preventDefault()
 
         firebase
           .firestore()
             .collection('items')
-            .doc(uuid)
-            .set({
-                userId: user.uid,
+            .doc(itemID)
+            .update({
                 itemName: itemName,
                 size: size,
                 group: group,
                 pricePaid: price,
-                date: new Date()
+                salePrice: salePrice,
           });
     }
 
@@ -334,79 +353,8 @@ export default function SalesContents() {
                         </div>
                         <div className={styles.utility_bar}>
                             <input className={styles.search_bar} type="text" placeholder="Search products" />
-                            <button onClick={() => setModalIsOpen(true)} className={styles.add_button}>+</button>
                         </div>
                     </div>
-                    <Modal ariaHideApp={false} isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)} className={style.modal}>
-                        <div className={style.modal_content}>
-                            <form onSubmit={handleSubmit}>
-                                <div>
-                                    <div onClick={() => setModalIsOpen(false)} className={style.close_icon}>
-                                        <FiX />
-                                    </div>
-                                    <div className={style.add_item}>
-                                        <a>Item Adder</a>
-                                    </div>
-                                </div>
-                                <a className={style.input_header}>PRODUCT NAME</a>
-                                <input className={style.name_box} type="text" placeholder="Product name" onChange={saveItemName} required/>
-                                <div className={style.input_grid}>
-                                    <div className={style.price_col}>
-                                        <a className={style.input_header}>PURCHASE PRICE</a>
-                                        <input type="number" className={style.price_box} placeholder="Price" onChange={savePrice} required />
-                                    </div>
-                                    <div className={style.size_col}>
-                                        <a className={style.input_header}>SIZE</a>
-                                        <select className={style.size_box} onChange={saveSize} defaultValue="" required>
-                                            <option disabled={true} value="">Size</option>
-                                            <option onChange={saveSize}>N/A</option>
-                                            <option onChange={saveSize}>XS</option>
-                                            <option onChange={saveSize}>S</option>
-                                            <option onChange={saveSize}>M</option>
-                                            <option onChange={saveSize}>L</option>
-                                            <option onChange={saveSize}>XL</option>
-                                            <option onChange={saveSize}>XXL</option>
-                                            <option onChange={saveSize}>3.5</option>
-                                            <option onChange={saveSize}>4</option>
-                                            <option onChange={saveSize}>4.5</option>
-                                            <option onChange={saveSize}>5</option>
-                                            <option onChange={saveSize}>5.5</option>
-                                            <option onChange={saveSize}>6</option>
-                                            <option onChange={saveSize}>6.5</option>
-                                            <option onChange={saveSize}>7.5</option>
-                                            <option onChange={saveSize}>8</option>
-                                            <option onChange={saveSize}>8.5</option>
-                                            <option onChange={saveSize}>9</option>
-                                            <option onChange={saveSize}>9.5</option>
-                                            <option onChange={saveSize}>10</option>
-                                            <option onChange={saveSize}>10.5</option>
-                                            <option onChange={saveSize}>11</option>
-                                            <option onChange={saveSize}>11.5</option>
-                                            <option onChange={saveSize}>12</option>
-                                            <option onChange={saveSize}>12.5</option>
-                                            <option onChange={saveSize}>13</option>
-                                            <option onChange={saveSize}>13.5</option>
-                                            <option onChange={saveSize}>14</option>
-                                        </select>
-                                    </div>
-                                    <div className={style.group_col}>
-                                        <a className={style.input_header}>GROUP</a>
-                                        <select className={style.group_box} onChange={saveGroup} defaultValue="" required>
-                                            <option disabled={true} value="">Group</option>
-                                            <option onChange={saveGroup}>Sneakers</option>
-                                            <option onChange={saveGroup}>Streetwear</option>
-                                            <option onChange={saveGroup}>Electronics</option>
-                                            <option onChange={saveGroup}>Collectibles</option>
-                                            <option onChange={saveGroup}>Other</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div className={style.buttons}>
-                                    <button className={style.add_box} type="submit" >Add Item</button>
-                                </div>
-                            </form>
-                        </div>
-                    </Modal>
                 </div>
                 <div className={styles.table}>
                     <div className={styles.table_header}>
@@ -421,6 +369,12 @@ export default function SalesContents() {
                         </div>
                         <div className={styles.price_header}>
                             <h2>Price</h2>
+                        </div>
+                        <div className={styles.price_header}>
+                            <h2>Sale Price</h2>
+                        </div>
+                        <div className={styles.price_header}>
+                            <h2>Profit</h2>
                         </div>
                         <div className={styles.actions_header}> 
                         </div>
@@ -442,32 +396,95 @@ export default function SalesContents() {
                                             </div>
                                             <div className={styles.price_column}>
                                                 <h2>${item.pricePaid}</h2>
-                                        </div>
+                                            </div>
+                                            <div className={styles.price_column}>
+                                                <h2>${item.salePrice}</h2>
+                                            </div>
+                                            <div className={styles.price_column}>
+                                                <h2>${item.profit}</h2>
+                                            </div>
                                         <div className={styles.actions_column}>
                                             <button className={styles.edit_button} onClick={() => {
+                                                setItemID(item.id)
+                                                setItemName(item.itemName)
+                                                setPrice(item.pricePaid)
+                                                setSize(item.size)
+                                                setGroup(item.group)
+                                                setSalePrice(item.salePrice)
                                                 setEditModalOpen(true)
                                             }}><FiEdit /></button>
                                             <Modal ariaHideApp={false} isOpen={editModalOpen} onRequestClose={() => setEditModalOpen(false)} className={style.modal}>
                                                 <div className={style.modal_content}>
-                                                    <form onSubmit={() => {
-                                                        firebase
-                                                            .firestore()
-                                                            .collection('items')
-                                                            .doc(item.id)
-                                                            .update({
-                                                                itemName: itemName,
-                                                                size: size,
-                                                                group: group,
-                                                                pricePaid: price,
-                                                        })
-                                                    }}>
-                                                        <input type="text" placeholder="Product Name" onChange={saveItemName} value={item.itemName} required />
-                                                        <input type="text" placeholder="Size" onChange={saveSize} value={item.size} required />
-                                                        <input type="text" placeholder="Group" onChange={saveGroup} value={item.group} required />
-                                                        <input type="number" placeholder="Price Paid" onChange={savePrice} value={item.pricePaid} required />
-                                                        <button type="submit" >Edit Item</button>
+                                                    <form onSubmit={handleEditSubmit}>
+                                                        <div>
+                                                            <div onClick={() => setEditModalOpen(false)} className={style.close_icon}>
+                                                                <FiX />
+                                                            </div>
+                                                            <div className={style.add_item}>
+                                                                <a>Item Editer</a>
+                                                            </div>
+                                                        </div>
+                                                        <a className={style.input_header}>PRODUCT NAME</a>
+                                                        <input className={style.name_box} type="text" placeholder="Product name" onChange={saveItemName} value={itemName} required/>
+                                                        <div className={style.input_grid}>
+                                                            <div className={style.price_col}>
+                                                                <a className={style.input_header}>PURCHASE PRICE</a>
+                                                                <input type="number" step=".01" className={style.price_box} placeholder="Price" onChange={savePrice} value={price} required />
+                                                            </div>
+                                                            <div className={style.size_col}>
+                                                                <a className={style.input_header}>SIZE</a>
+                                                                <select className={style.size_box} onChange={saveSize} defaultValue="" value={size} required>
+                                                                    <option disabled={true} value="">Size</option>
+                                                                    <option onChange={saveSize}>N/A</option>
+                                                                    <option onChange={saveSize}>XS</option>
+                                                                    <option onChange={saveSize}>S</option>
+                                                                    <option onChange={saveSize}>M</option>
+                                                                    <option onChange={saveSize}>L</option>
+                                                                    <option onChange={saveSize}>XL</option>
+                                                                    <option onChange={saveSize}>XXL</option>
+                                                                    <option onChange={saveSize}>3.5</option>
+                                                                    <option onChange={saveSize}>4</option>
+                                                                    <option onChange={saveSize}>4.5</option>
+                                                                    <option onChange={saveSize}>5</option>
+                                                                    <option onChange={saveSize}>5.5</option>
+                                                                    <option onChange={saveSize}>6</option>
+                                                                    <option onChange={saveSize}>6.5</option>
+                                                                    <option onChange={saveSize}>7.5</option>
+                                                                    <option onChange={saveSize}>8</option>
+                                                                    <option onChange={saveSize}>8.5</option>
+                                                                    <option onChange={saveSize}>9</option>
+                                                                    <option onChange={saveSize}>9.5</option>
+                                                                    <option onChange={saveSize}>10</option>
+                                                                    <option onChange={saveSize}>10.5</option>
+                                                                    <option onChange={saveSize}>11</option>
+                                                                    <option onChange={saveSize}>11.5</option>
+                                                                    <option onChange={saveSize}>12</option>
+                                                                    <option onChange={saveSize}>12.5</option>
+                                                                    <option onChange={saveSize}>13</option>
+                                                                    <option onChange={saveSize}>13.5</option>
+                                                                    <option onChange={saveSize}>14</option>
+                                                                </select>
+                                                            </div>
+                                                            <div className={style.group_col}>
+                                                                <a className={style.input_header}>GROUP</a>
+                                                                <select className={style.group_box} onChange={saveGroup} defaultValue="" value={group} required>
+                                                                    <option disabled={true} value="">Group</option>
+                                                                    <option onChange={saveGroup}>Sneakers</option>
+                                                                    <option onChange={saveGroup}>Streetwear</option>
+                                                                    <option onChange={saveGroup}>Electronics</option>
+                                                                    <option onChange={saveGroup}>Collectibles</option>
+                                                                    <option onChange={saveGroup}>Other</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                        <div className={style.price_col}>
+                                                                <a className={style.input_header}>SALE PRICE</a>
+                                                                <input type="number" step=".01" className={style.price_box} placeholder="Sale Price" onChange={saveSalePrice} value={salePrice} required />
+                                                            </div>
+                                                        <div className={style.buttons}>
+                                                            <button className={style.add_box} type="submit">Edit</button>
+                                                        </div>
                                                     </form>
-                                                    <button onClick={() => setEditModalOpen(false)}>Close</button>
                                                 </div>
                                             </Modal>
                                             <button className={styles.delete_button} onClick={() => {
