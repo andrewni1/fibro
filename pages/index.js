@@ -13,12 +13,12 @@ export default function Home() {
                         <h4 className={styles.title}>Inventory management made simpler and more enjoyable</h4>
                         <a className={styles.desc}>Track inventory and sales with a beautiful, simple to use interface.</a>
                         <br />
-                        <a href="/login">
+                        <a href="/dashboard">
                             <button className={styles.home_buttons}>
                                 Sign Up
                             </button >
                         </a>
-                        <a href="/login">
+                        <a href="/dashboard">
                             <button className={styles.home_buttons}>
                                 Log In
                             </button >
