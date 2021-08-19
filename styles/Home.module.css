@@ -74,28 +74,3 @@
   font-weight: 500;
   font-size: 21px;
 }
-
-.footer {
-  color: #FFFFFF;
-}
-
-.footer-link {
-  font-weight: 550;
-  font-size: 16px;
-  color: #FFFFFF;
-  letter-spacing: normal;
-  line-height: 22.88px;
-  text-decoration: none;
-  margin-right: 32px;
-}
-
-.footer-header {
-  font-size: 17.5px;
-  font-weight: 600;
-  line-height: 28px;
-  color: #C3CAEA;
-}
-
-.footer-grid {
-  margin-left: 26.1%;
-}

@@ -48,45 +48,45 @@ export default function SalesContents() {
 
 
     useEffect(() => {
-            firebase.firestore()
-              .collection('items')
-              .get()
-              .then(snap => {
+        firebase.firestore()
+            .collection('items')
+            .get()
+            .then(snap => {
                 const items = snap.docs.map(doc => ({
                   id: doc.id,
                   ...doc.data()
                 }));
                 setItems(items);
               });
-        }, []);
+    }, []);
 
     items.map(item => {
         if (item.userId === user.uid && item.sold == true) {
             if (item.group == "Sneakers") {
                 itemCount = itemCount + 1;
                 sneakerCount = sneakerCount + 1;
-                allValue1 = allValue1 + parseFloat(item.pricePaid);
-                sneakerValue1 = sneakerValue1 + parseFloat(item.pricePaid);
+                allValue1 = allValue1 + parseFloat(item.salePrice);
+                sneakerValue1 = sneakerValue1 + parseFloat(item.salePrice);
             } else if (item.group == "Streetwear") {
                 itemCount = itemCount + 1;
                 streetwearCount = streetwearCount + 1;
-                allValue1 = allValue1 + parseFloat(item.pricePaid);
-                streetwearValue1 = streetwearValue1 + parseFloat(item.pricePaid);
+                allValue1 = allValue1 + parseFloat(item.salePrice);
+                streetwearValue1 = streetwearValue1 + parseFloat(item.salePrice);
             } else if (item.group == "Electronics") {
                 itemCount = itemCount + 1;
                 electronicsCount = electronicsCount + 1;
-                allValue1 = allValue1 + parseFloat(item.pricePaid);
-                electronicsValue1 = electronicsValue1 + parseFloat(item.pricePaid);
+                allValue1 = allValue1 + parseFloat(item.salePrice);
+                electronicsValue1 = electronicsValue1 + parseFloat(item.salePrice);
             } else if (item.group == "Collectibles") {
                 itemCount = itemCount + 1;
                 collectiblesCount = collectiblesCount + 1;
-                allValue1 = allValue1 + parseFloat(item.pricePaid);
-                collectiblesValue1 = collectiblesValue1 + parseFloat(item.pricePaid);
+                allValue1 = allValue1 + parseFloat(item.salePrice);
+                collectiblesValue1 = collectiblesValue1 + parseFloat(item.salePrice);
             } else if (item.group == "Other") {
                 itemCount = itemCount + 1;
                 otherCount = otherCount + 1;
-                allValue1 = allValue1 + parseFloat(item.pricePaid);
-                otherValue1 = otherValue1 + parseFloat(item.pricePaid);
+                allValue1 = allValue1 + parseFloat(item.salePrice);
+                otherValue1 = otherValue1 + parseFloat(item.salePrice);
             }
 
             allValue = allValue1.toFixed(2)

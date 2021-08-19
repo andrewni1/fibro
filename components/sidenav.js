@@ -1,7 +1,8 @@
 import React from 'react';
 import Link from 'next/link'
 import styles from '../styles/SideNav.module.css'
-import { FiGrid, FiPackage, FiTrendingUp, FiCreditCard, FiInbox, FiKey } from "react-icons/fi";
+import { FiGrid, FiPackage, FiTrendingUp, FiCreditCard, FiInbox, FiKey, FiLogOut } from "react-icons/fi";
+import firebase from 'firebase';
 
 export default function SideNav() {
     return (
@@ -30,6 +31,9 @@ export default function SideNav() {
                 <Link as="/bots" href="/bots">
                     <button title="Bots" className={styles.nav_icon}><FiKey /></button>
                 </Link>
+            </div>
+            <div>
+                <button title="Bots" onClick={firebase.auth().signOut()} className={styles.nav_icon}><FiLogOut /></button>
             </div>
         </div>
     )

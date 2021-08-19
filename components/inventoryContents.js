@@ -50,17 +50,17 @@ export default function InventoryContents() {
 
 
     useEffect(() => {
-            firebase.firestore()
-              .collection('items')
-              .get()
-              .then(snap => {
-                const items = snap.docs.map(doc => ({
-                  id: doc.id,
-                  ...doc.data()
-                }));
-                setItems(items);
-              });
-        }, []);
+        firebase.firestore()
+            .collection('items')
+            .get()
+            .then(snap => {
+            const items = snap.docs.map(doc => ({
+                id: doc.id,
+                ...doc.data()
+            }));
+            setItems(items);
+            });
+    }, []);
 
     items.map(item => {
         if (item.userId === user.uid && item.sold == false) {
@@ -672,7 +672,7 @@ export default function InventoryContents() {
                                                         console.log(item.id)
                                                     })
                                             }}><FiTrash /></button>
-                                        </div>
+                                            </div>
                                         </div>
                                     )
                                     
