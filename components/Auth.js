@@ -1,6 +1,7 @@
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import firebase from "firebase/app";
 import 'firebase/auth'
+import styles from '../styles/Auth.module.css'
 
 const uiConfig = {
     signInFlow: 'popup',
@@ -20,11 +21,14 @@ const uiConfig = {
 
 const FirebaseAuth = () => {
     return (
-        <div>
-            <StyledFirebaseAuth
-                uiConfig={uiConfig}
-                firebaseAuth={firebase.auth()}
-            />
+        <div className={styles.page}>
+            <div className={styles.auth_container}>
+                <h1>Sign In or Create Account</h1>
+                <StyledFirebaseAuth
+                    uiConfig={uiConfig}
+                    firebaseAuth={firebase.auth()}
+                />
+            </div>
         </div>
     )
 }

@@ -1,0 +1,33 @@
+.page {
+    background-image: linear-gradient(to top, #161624, #161624, #161724, #171725, #171725, #181827, #181928, #191a2a, #1b1c2d, #1d1e31, #1f2034, #212238);
+    min-height: 100vh;
+    padding-top: 18%;
+}
+
+.auth_container {
+    background-color: #1c1f30;
+    width: 350px;
+    height: 400px;
+    border-radius: 10px;
+    padding-top: 80px;
+    text-align: center;
+    color: white;
+    font-size: 12px;
+    margin-left: 43.5%;
+    margin-right: 43.5%;
+}
+
+@media only screen and (max-width: 1000px) {
+    .auth_container {
+        background-color: #1c1f30;
+        width: 350px;
+        height: 400px;
+        border-radius: 10px;
+        padding-top: 80px;
+        text-align: center;
+        color: white;
+        font-size: 12px;
+        margin-left: 35%;
+        margin-right: 43.5%;
+    }
+}
