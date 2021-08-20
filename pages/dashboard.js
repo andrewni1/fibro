@@ -12,6 +12,7 @@ import { VscSignOut } from "react-icons/vsc";
 import { AiOutlineHome } from "react-icons/ai";
 import Modal from 'react-modal'
 import { v4 as uuidv4 } from 'uuid';
+import Link from 'next/link'
 
 export default function InventoryContents() {
     const [user, loading, error] = useAuthState(firebase.auth())
@@ -377,7 +378,9 @@ export default function InventoryContents() {
                         <div className={styles.utility_bar}>
                             <input className={styles.search_bar} type="text" placeholder="Search products" />
                             <button onClick={() => setModalIsOpen(true)} className={styles.add_button}>+</button>
-                            <a href="/"><button className={styles.home_button}><AiOutlineHome /></button></a>
+                            <Link href="/">
+                                <a><button className={styles.home_button}><AiOutlineHome /></button></a>
+                            </Link>
                             <button onClick={signOut} className={styles.signout_button}><VscSignOut /></button>
                         </div>
                     </div>

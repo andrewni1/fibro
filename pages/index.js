@@ -2,6 +2,7 @@ import React from "react"
 import Navbar from "../components/navbar"
 import Footer from "../components/footer"
 import styles from '../styles/Home.module.css'
+import Link from 'next/link'
 
 export default function Home() {
     return(
@@ -14,16 +15,20 @@ export default function Home() {
                             <h4 className={styles.title}>Inventory management made simpler and more enjoyable</h4>
                             <a className={styles.desc}>Track inventory with a beautiful, simple to use interface.</a>
                             <br />
-                            <a href="/dashboard">
-                                <button className={styles.home_buttons}>
-                                    Sign Up
-                                </button >
-                            </a>
-                            <a href="/dashboard">
-                                <button className={styles.home_buttons}>
-                                    Log In
-                                </button >
-                            </a>
+                            <Link href="/dashboard">
+                                <a>
+                                    <button className={styles.home_buttons}>
+                                        Sign Up
+                                    </button >
+                                </a>
+                            </Link>
+                            <Link href="/dashboard">
+                                <a>
+                                    <button className={styles.home_buttons}>
+                                        Log In
+                                    </button >
+                                </a>
+                            </Link>
                         </div>
                         <div className={styles.col_two}>
                             <img className={styles.table_pic} src="/fibropic.png" alt="inventory-table"/>
@@ -53,7 +58,7 @@ export default function Home() {
                         <div className={styles.feature_col_one}>
                             <a className={styles.featureHeader}>FEATURE</a>
                             <a className={styles.featureTitle}>Privacy and Security</a>
-                            <a className={styles.featureDesc}>Account authentication allows for a user's information to be private and secure.</a>
+                            <a className={styles.featureDesc}>Account authentication allows for a user&apos;s information to be private and secure.</a>
                         </div>
                         <div className={styles.feature_col_two}>
                             <img className={styles.security_pic} src="/security.png" alt="security-pic"/>
