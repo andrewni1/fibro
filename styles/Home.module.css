@@ -56,7 +56,7 @@
 
 .feature_container_two {
   display: flex;
-  padding-top: 80px;
+  padding-top: 20px;
 }
 
 .feature_col_one {
@@ -116,4 +116,15 @@
   width: 550px;
   height: 450px;
   margin-left: 100px;
+}
+
+.edit_pic {
+  width: 750px;
+  height: 450px;
+  padding-right: 150px;
+}
+
+.security_pic {
+  width: 750px;
+  height: 450px;
 }

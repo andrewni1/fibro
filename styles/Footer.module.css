@@ -4,7 +4,7 @@
 }
 
 .nav {
-    width: 35%;
+    width: 30%;
 }
 
 .links {
@@ -35,4 +35,28 @@
     width: 100%;
     margin-bottom: 80px;
 }
-  
+
+.icon {
+    color: #6B9FFF;
+    font-size: 35px;
+    margin-right: 8px;
+}
+
+.logo_container {
+    display: flex;
+    margin-bottom: 30px;
+    text-decoration: none;
+}
+
+.logo_container:hover {
+    cursor: pointer;
+}
+
+.nav_left {
+    font-weight: 750;
+    font-size: 18px;
+    text-decoration-style: solid;
+    text-decoration: none;
+    color: #FFFFFF;
+    padding-top: 7px;
+}

@@ -18,6 +18,8 @@
     display: flex;
     text-align: center;
     justify-content: space-between;
+    padding-right: 60px;
+    padding-left: 60px;
 }
 
 .nav_col_three {
@@ -38,10 +40,10 @@
 .nav_left {
     font-weight: 750;
     font-size: 18px;
-    padding-top: 5%;
     text-decoration-style: solid;
     text-decoration: none;
     color: #FFFFFF;
+    padding-top: 7px;
 }
   
 .nav_middle {
@@ -84,4 +86,20 @@
 
 .dash {
     text-decoration: none;
+}
+
+.icon {
+    color: #6B9FFF;
+    font-size: 35px;
+    margin-right: 8px;
+}
+
+.logo_container {
+    display: flex;
+    margin-top: 8px;
+    text-decoration: none;
+}
+
+.logo_container:hover {
+    cursor: pointer;
 }
