@@ -2,7 +2,6 @@ import React from "react"
 import Navbar from "../components/navbar"
 import Footer from "../components/footer"
 import styles from '../styles/Home.module.css'
-import InventoryTable from '../pictures/fibropic.png'
 
 export default function Home() {
     return(
@@ -27,30 +26,28 @@ export default function Home() {
                             </a>
                         </div>
                         <div className={styles.col_two}>
-                            <img src={InventoryTable} alt="inventory-table"/>
+                            <img className={styles.table_pic} src="/fibropic.png" alt="inventory-table"/>
                         </div>
                     </div>
-                    <div className={styles.feature}>
-                        <a className={styles.featureHeader}>FEATURE</a>
-                        <br />
-                        <a></a>
-                        <br />
-                        <a className={styles.featureTitle}>Database Storage</a>
-                        <br />
-                        <a></a>
-                        <br />
-                        <a className={styles.featureDesc}>With the use of a database, all your entries will be saved for the next time you log in.</a>
+                    <div className={styles.feature_container_one}>
+                        <div className={styles.feature_col_one}>
+                            <a className={styles.featureHeader}>FEATURE</a>
+                            <a className={styles.featureTitle}>Database Storage</a>
+                            <a className={styles.featureDesc}>With the use of a database, all your entries will be saved for the next time you log in.</a>
+                        </div>
+                        <div className={styles.feature_col_two}>
+                            <img className={styles.database_pic} src="/database.png" alt="database-pic"/>
+                        </div>
                     </div>
-                    <div className={styles.feature}>
-                        <a className={styles.featureHeader}>FEATURE</a>
-                        <br />
-                        <a></a>
-                        <br />
-                        <a className={styles.featureTitle}>Database Storage</a>
-                        <br />
-                        <a></a>
-                        <br />
-                        <a className={styles.featureDesc}>With the use of database, all your entries will be saved for the next time you log in.</a>
+                    <div className={styles.feature_container_two}>
+                        <div className={styles.feature_col_two}>
+                            <img className={styles.database_pic} src="/database.png" alt="database-pic"/>
+                        </div>
+                        <div className={styles.feature_col_one}>
+                            <a className={styles.featureHeader}>FEATURE</a>
+                            <a className={styles.featureTitle}>Database Storage</a>
+                            <a className={styles.featureDesc}>With the use of a database, all your entries will be saved for the next time you log in.</a>
+                        </div>
                     </div>
                 </div>
                 <Footer />
