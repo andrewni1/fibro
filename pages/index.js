@@ -7,7 +7,7 @@ export default function Home() {
     return(
         <div className={styles.container}>
             <div className={styles.home}>
-                <Navbar />
+                <Navbar/>
                 <div className={styles.grid}>
                     <div className={styles.home_section}>
                         <div className={styles.col_one}>
@@ -49,7 +49,7 @@ export default function Home() {
                             <a className={styles.featureDesc}>Products can easily be created and managed through the use of create, edit, and delete buttons.  </a>
                         </div>
                     </div>
-                    <div className={styles.feature_container_two}>
+                    <div className={styles.feature_container_three}>
                         <div className={styles.feature_col_one}>
                             <a className={styles.featureHeader}>FEATURE</a>
                             <a className={styles.featureTitle}>Privacy and Security</a>

@@ -1,29 +1,30 @@
 .nav_wrapper {
     height: 100%;
-    min-width: 100vh;
+    display: flex;
+    justify-content: space-between;
 }
 
 .nav_menu {
     text-decoration: none;
     padding-top: 2.5%;
     display: flex;
+    justify-content: space-between;
+    min-width: 90vh;
 }
 
 .nav_col_one {
-    width: 37.5%;
+    display: flex;
+    justify-content: flex-start;
 }
 
 .nav_col_two {
-    width: 25%;
     display: flex;
-    text-align: center;
-    justify-content: space-between;
-    padding-right: 60px;
-    padding-left: 60px;
+    justify-content: space-evenly;
+    width: 20%;
+    padding-top: 4px;
 }
 
 .nav_col_three {
-    width: 37.5%;
     display: flex;
     justify-content: flex-end;
     text-decoration: none;
@@ -102,4 +103,24 @@
 
 .logo_container:hover {
     cursor: pointer;
+}
+
+@media only screen and (max-width: 320px) {
+    .nav_menu {
+        text-decoration: none;
+        padding-top: 2.5%;
+        display: flex;
+        justify-content: space-between;
+        min-width: 78vh;
+    }
+}
+
+@media only screen and (min-width: 321px) {
+    .nav_menu {
+        text-decoration: none;
+        padding-top: 2.5%;
+        display: flex;
+        justify-content: space-between;
+        min-width: 78vh;
+    }
 }
