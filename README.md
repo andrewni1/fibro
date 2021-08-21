@@ -1,34 +1,30 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Home Page
 
-## Getting Started
+Whenever a user visits the website the home page will be displayed. The home page displays the features of Fibro, navigation links, and the ability to sign up and sign in. Users that are already signed in can access the dashboard from the home page.
 
-First, run the development server:
+![fibrohome1](https://user-images.githubusercontent.com/70303734/130323336-6449bd4a-f9c1-47d3-93e2-c36a2d2896a5.png)
+![fibrohome2](https://user-images.githubusercontent.com/70303734/130323381-c8c66a84-242c-4619-ad35-9f27cbbce80b.png)
+![fibrohome3](https://user-images.githubusercontent.com/70303734/130323384-18eb6dab-522f-40ea-92de-5842137a22bf.png)
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## Auth Page
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+This is where the user will create an account or sign in. Upon successful sign up or sign in, the user will be redirected to the dashboard.
+![auth](https://user-images.githubusercontent.com/70303734/130323484-a4f05e07-6cb0-4c5e-94fb-07e92688b457.png)
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Dashboard
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+Once a user is signed in and authenticated they will be able to use the dashboard where the user will be able to create, edit, and delete products. The page also displays the value of the user's whole inventory and also allows the user to sort by group, allowing products with the specified group to only be displayed.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+![dashboard](https://user-images.githubusercontent.com/70303734/130323563-226e714e-dedb-40cb-93c8-bfcd3476d9a4.png)
 
-## Learn More
+# Add Product
 
-To learn more about Next.js, take a look at the following resources:
+ Upon clicking the add button a Modal will pop up allowing a user to create a product to be added to their inventory.
+ 
+ ![add](https://user-images.githubusercontent.com/70303734/130323598-1b8e99d4-74a3-4ca0-8698-a80d60db1dbf.png)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Edit Proudct
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Upon clicking the edit button a Modal will pop up allowing a user to edit a product.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+![editer](https://user-images.githubusercontent.com/70303734/130323631-c7248f6e-5d65-4f77-a0a6-d47af3dd88af.png)
