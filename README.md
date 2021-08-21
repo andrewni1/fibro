@@ -23,7 +23,7 @@ Once a user is signed in and authenticated they will be able to use the dashboar
  
  ![add](https://user-images.githubusercontent.com/70303734/130323598-1b8e99d4-74a3-4ca0-8698-a80d60db1dbf.png)
 
-# Edit Proudct
+# Edit Product
 
 Upon clicking the edit button a Modal will pop up allowing a user to edit a product.
 
