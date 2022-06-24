@@ -23,6 +23,7 @@ export default function InventoryContents() {
     const [size, setSize] = useState('')
     const [group, setGroup] = useState('')
     const [price, setPrice] = useState('')
+    const [search, setSearch] = useState('')
 
     const [modalIsOpen, setModalIsOpen] = useState(false)
     const [editModalOpen, setEditModalOpen] = useState(false)
@@ -83,6 +84,10 @@ export default function InventoryContents() {
         setPrice(e.target.value)
     }
 
+    const saveSearch = (e) => {
+        setSearch(e.target.value)
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault()
 
@@ -100,7 +105,10 @@ export default function InventoryContents() {
                 group: group,
                 pricePaid: newPrice,
                 date: new Date(),
-          });
+            })
+            .then(() => {
+                window.location.reload();
+            })
     }
 
     const handleEditSubmit = (e) => {
@@ -115,7 +123,10 @@ export default function InventoryContents() {
                 size: size,
                 group: group,
                 pricePaid: price,
-          });
+            })
+            .then(() => {
+                window.location.reload();
+            })
     }
 
     const signOut = () => {
@@ -376,7 +387,7 @@ export default function InventoryContents() {
                             </div>
                         </div>
                         <div className={styles.utility_bar}>
-                            <input className={styles.search_bar} type="text" placeholder="Search products" />
+                            <input className={styles.search_bar} type="text" placeholder="Search products" onChange={saveSearch}/>
                             <button onClick={() => setModalIsOpen(true)} className={styles.add_button}>+</button>
                             <Link href="/">
                                 <a><button className={styles.home_button}><AiOutlineHome /></button></a>
@@ -475,7 +486,7 @@ export default function InventoryContents() {
                     <div className={styles.content_container}>
                         {
                             items.map(item => {
-                                if(item.userId === user.uid && (item.group == activeGroup || activeGroup === "All Groups")) {
+                                if(item.userId === user.uid && (item.group == activeGroup || activeGroup === "All Groups") && item.itemName.includes(search)) {
                                     return (
                                         <div className={styles.table_content_container}>
                                             <div key={item.id} className={styles.table_contents}>
@@ -578,6 +589,7 @@ export default function InventoryContents() {
                                                         .delete()
                                                         .then(() => {
                                                             console.log(item.id)
+                                                            window.location.reload();
                                                         })
                                                 }}><FiTrash /></button>
                                                 </div>

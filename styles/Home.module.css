@@ -52,19 +52,16 @@
 
 .feature_container_one {
   display: flex;
-  flex-direction: row;
   padding-top: 320px;
 }
 
 .feature_container_two {
   display: flex;
-  flex-direction: row;
   padding-top: 20px;
 }
 
 .feature_container_three {
   display: flex;
-  flex-direction: row;
   padding-top: 20px;
 }
 
@@ -78,7 +75,6 @@
 .feature_col_two {
   display: flex;
   flex-direction: column;
-  text-align: center;
   width: 50%;
 }
 
@@ -120,9 +116,9 @@
 }
 
 .table_pic {
-  margin-top: 40px;
-  width: 1000px;
-  height: 700px;
+  margin-top: 100px;
+  width: 800px;
+  height: 600px;
   border-radius: 15px;
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
 }

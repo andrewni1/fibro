@@ -8,25 +8,15 @@ export default function Navbar() {
     return (
         <div className={styles.nav_wrapper}>
             <div className={styles.nav_menu}>
-                <div className={styles.nav_col_one}>
-                    <div>
-                        <Link href="/">
-                            <a className={styles.logo_container}>
-                                <GiKnot className={styles.icon}/>
-                                <a className={styles.nav_left}>Fibro</a>
-                            </a>
-                        </Link>
-                    </div>
-                </div>
-                <div className={styles.nav_col_two}>
+                <div>
                     <Link href="/">
-                        <a className={styles.nav_middle}>Home</a>
-                    </Link>
-                    <Link href="/features">
-                        <a className={styles.nav_middle}>Features</a>
+                        <a className={styles.logo_container}>
+                            <GiKnot className={styles.icon}/>
+                            <a className={styles.nav_left}>Fibro</a>
+                        </a>
                     </Link>
                 </div>
-                <div className={styles.nav_col_three}>
+                <div>
                     <Link href="/dashboard">
                         <a className={styles.dash}>
                             <div className={styles.dash_wrapper}>

@@ -36,7 +36,7 @@ export default function Home() {
                     </div>
                     <div className={styles.feature_container_one}>
                         <div className={styles.feature_col_one}>
-                            <a className={styles.featureHeader}>FEATURE</a>
+                            <a className={styles.featureHeader}>FEATURE 01</a>
                             <a className={styles.featureTitle}>Database Storage</a>
                             <a className={styles.featureDesc}>With the use of a database, all your entries will be saved for the next time you log in.</a>
                         </div>
@@ -49,14 +49,14 @@ export default function Home() {
                             <img className={styles.edit_pic} src="/edit.png" alt="edit-pic"/>
                         </div>
                         <div className={styles.feature_col_one}>
-                            <a className={styles.featureHeader}>FEATURE</a>
+                            <a className={styles.featureHeader}>FEATURE 02</a>
                             <a className={styles.featureTitle}>Create, Edit, and Delete</a>
                             <a className={styles.featureDesc}>Products can easily be created and managed through the use of create, edit, and delete buttons.  </a>
                         </div>
                     </div>
                     <div className={styles.feature_container_three}>
                         <div className={styles.feature_col_one}>
-                            <a className={styles.featureHeader}>FEATURE</a>
+                            <a className={styles.featureHeader}>FEATURE 03</a>
                             <a className={styles.featureTitle}>Privacy and Security</a>
                             <a className={styles.featureDesc}>Account authentication allows for a user&apos;s information to be private and secure.</a>
                         </div>
