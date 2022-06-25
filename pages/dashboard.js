@@ -17,17 +17,17 @@ import Link from 'next/link'
 export default function InventoryContents() {
     const [user, loading, error] = useAuthState(firebase.auth())
     const [items, setItems] = useState([])
-
     const [itemID, setItemID] = useState('')
     const [itemName, setItemName] = useState('')
     const [size, setSize] = useState('')
     const [group, setGroup] = useState('')
     const [price, setPrice] = useState('')
     const [search, setSearch] = useState('')
-
+    const [activeGroup, setActiveGroup] = useState("All Groups")
+    const [activeValue, setActiveValue] = useState(allValue)
+    const [activeCount, setActiveCount] = useState(itemCount)
     const [modalIsOpen, setModalIsOpen] = useState(false)
     const [editModalOpen, setEditModalOpen] = useState(false)
-
     const uuid = uuidv4()
 
     var itemCount = 0;
@@ -63,10 +63,6 @@ export default function InventoryContents() {
             setItems(items);
             });
     }, []);
-
-    const [activeGroup, setActiveGroup] = useState("All Groups")
-    const [activeValue, setActiveValue] = useState(allValue)
-    const [activeCount, setActiveCount] = useState(itemCount)
 
     const saveItemName = (e) => {
         setItemName(e.target.value)
@@ -185,6 +181,7 @@ export default function InventoryContents() {
         setActiveCount(otherCount);
     }
 
+    {/* Totals value of items */}
     if (user) {
         items.map(item => {
             if (item.userId === user.uid) {
@@ -224,6 +221,7 @@ export default function InventoryContents() {
                 otherValue = otherValue1.toFixed(2)
             }
         })
+
         return (
             <div className={styles.page}>
                 <div>
@@ -285,7 +283,7 @@ export default function InventoryContents() {
                                     </div>
                                     <div className={styles.group_display}>
                                         {(() => {
-                                            if (activeGroup == "All Groups"){
+                                            if (activeGroup == "All Groups") {
                                                 return (
                                                     <div>
                                                         <a className={styles.group_title}>All Groups</a>
@@ -311,6 +309,7 @@ export default function InventoryContents() {
                                     </div>
                                 </div>
                             </div>
+                            {/* Group buttons */}
                             <div className={styles.above_icon_container}>
                                 <div className={styles.above_icons}>
                                     <button onClick={changeToAll} className={styles.group_button}>
@@ -386,6 +385,7 @@ export default function InventoryContents() {
                                 </div>
                             </div>
                         </div>
+                        {/* Utility buttons */}
                         <div className={styles.utility_bar}>
                             <input className={styles.search_bar} type="text" placeholder="Search products" onChange={saveSearch}/>
                             <button onClick={() => setModalIsOpen(true)} className={styles.add_button}>+</button>
@@ -395,6 +395,8 @@ export default function InventoryContents() {
                             <button onClick={signOut} className={styles.signout_button}><VscSignOut /></button>
                         </div>
                     </div>
+
+                    {/* Item adder modal */}
                     <Modal ariaHideApp={false} isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)} className={style.modal}>
                         <div className={style.modal_content}>
                             <form onSubmit={handleSubmit}>
@@ -465,8 +467,12 @@ export default function InventoryContents() {
                             </form>
                         </div>
                     </Modal>
+
                 </div>
+
+                {/* Item table */}
                 <div className={styles.table}>
+                    {/* Table header */}
                     <div className={styles.table_header}>
                         <div className={styles.name_header}>
                             <h2>Product</h2>
@@ -483,6 +489,7 @@ export default function InventoryContents() {
                         <div className={styles.actions_header}> 
                         </div>
                     </div>
+                    {/* Individual items */}
                     <div className={styles.content_container}>
                         {
                             items.map(item => {
@@ -511,6 +518,8 @@ export default function InventoryContents() {
                                                     setGroup(item.group)
                                                     setEditModalOpen(true)
                                                 }}><FiEdit /></button>
+
+                                                {/* Edit modal */}
                                                 <Modal ariaHideApp={false} isOpen={editModalOpen} onRequestClose={() => setEditModalOpen(false)} className={style.modal}>
                                                     <div className={style.modal_content}>
                                                         <form onSubmit={handleEditSubmit}>
@@ -581,6 +590,7 @@ export default function InventoryContents() {
                                                         </form>
                                                     </div>
                                                 </Modal>
+
                                                 <button className={styles.delete_button} onClick={() => {
                                                     firebase
                                                         .firestore()
@@ -596,7 +606,6 @@ export default function InventoryContents() {
                                             </div>
                                         </div>
                                     )
-                                    
                                 }   
                             })
                         }
