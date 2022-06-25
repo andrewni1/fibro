@@ -1,27 +1,16 @@
 .modal {
+    width: fit-content;
+    height: fit-content;
     position: absolute;
-    top: 25%;
-    left: 40%;
-    margin-top: -100px;
-    margin-left: -50px;
-    height: 800px;
-    width: 700px;
+    top: 30%;
 }
 
 .modal_content {
     background-color: #1c1f30;
-    position: absolute;
-    top: 40px;
-    left: 40px;
-    right: 40px;
-    bottom: 40px;
     overflow: auto;
-    border-radius: 6px;
+    border-radius: 8px;
     outline: none;
-    padding-top: 30px;
-    padding-bottom: 40px;
-    padding-right: 40px;
-    padding-left: 40px;
+    padding: 34px;
 }
 
 .add_item {
@@ -30,12 +19,10 @@
     font-size: 25px;
     padding-top: 20px;
     margin-bottom: 15px;
-    display: flex;
 }
 
 .close_icon {
     float: right;
-    color: white;
     font-weight: 550;
     font-size: 25px;
     color: #999999;
@@ -89,18 +76,15 @@
     border: 2px solid #5168a0;
 }
 
-.size_box::-webkit-scrollbar-track
-{
+.size_box::-webkit-scrollbar-track{
     display: none;
 }
 
-.size_box::-webkit-scrollbar
-{
+.size_box::-webkit-scrollbar{
 	width: 10px;
 }
 
-.size_box::-webkit-scrollbar-thumb
-{
+.size_box::-webkit-scrollbar-thumb{
 	border-radius: 10px;
     height: 20px;
 	background-color: #1e1d32;
@@ -194,4 +178,36 @@
 
 .add_box:hover {
     cursor: pointer;
+    background-color: #6a7cd4;
+}
+
+@media only screen and (min-width: 0px) {
+    .modal {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .modal {
+        left: 20%;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .modal {
+        left: 28%;
+    }
+}
+
+@media only screen and (min-width: 1440px) {
+    .modal {
+        left: 35%;
+    }
+}
+
+@media only screen and (min-width: 2560px) {
+    .modal {
+        left: 40%;
+    }
 }
