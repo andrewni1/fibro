@@ -9,7 +9,6 @@
     padding-top: 2.5%;
     display: flex;
     justify-content: space-between;
-    min-width: 90vh;
 }
 
 .nav_right {
@@ -80,50 +79,30 @@
 
 @media only screen and (max-width: 320px) {
     .nav_menu {
-        text-decoration: none;
-        padding-top: 2.5%;
-        display: flex;
-        justify-content: space-between;
         min-width: 78vh;
     }
 }
 
 @media only screen and (min-width: 321px) {
     .nav_menu {
-        text-decoration: none;
-        padding-top: 2.5%;
-        display: flex;
-        justify-content: space-between;
         min-width: 78vh;
     }
 }
 
 @media only screen and (min-width: 1525px) {
     .nav_menu {
-        text-decoration: none;
-        padding-top: 2.5%;
-        display: flex;
-        justify-content: space-between;
         min-width: 85vh;
     }
 }
 
 @media only screen and (min-width: 1856px) {
     .nav_menu {
-        text-decoration: none;
-        padding-top: 2.5%;
-        display: flex;
-        justify-content: space-between;
         min-width: 100vh;
     }
 }
 
 @media only screen and (min-width: 2000px) {
     .nav_menu {
-        text-decoration: none;
-        padding-top: 2.5%;
-        display: flex;
-        justify-content: space-between;
         min-width: 92vh;
     }
 }
