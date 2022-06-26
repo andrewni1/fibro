@@ -17,13 +17,13 @@ Once a user is signed in and authenticated they will be able to use the dashboar
 
 ![dashboard](https://user-images.githubusercontent.com/70303734/130323563-226e714e-dedb-40cb-93c8-bfcd3476d9a4.png)
 
-# Add Product
+## Add Product
 
  Upon clicking the add button a Modal will pop up allowing a user to create a product to be added to their inventory.
  
  ![add](https://user-images.githubusercontent.com/70303734/130323598-1b8e99d4-74a3-4ca0-8698-a80d60db1dbf.png)
 
-# Edit Product
+## Edit Product
 
 Upon clicking the edit button a Modal will pop up allowing a user to edit a product.
 
