@@ -611,6 +611,138 @@ export default function InventoryContents() {
                         }
                     </div>
                 </div>
+                {/* End table */}
+
+                {/* Mobile item table */}
+                <div className={styles.mobile_table}>
+                    {/* Individual cards */}
+                    <div className={styles.content_container}>
+                        {
+                            items.map(item => {
+                                if(item.userId === user.uid && (item.group == activeGroup || activeGroup === "All Groups") && item.itemName.includes(search)) {
+                                    return (
+                                        <div className={styles.mobile_table_content_container}>
+                                            <div key={item.id} className={styles.mobile_table_contents}>
+                                                <div className={styles.card_row_one}>
+                                                    <div className={styles.name_column}>
+                                                        <h2 className={styles.mobile_table_header_text}>Product</h2>
+                                                        <h2>{item.itemName}</h2>
+                                                    </div>
+                                                    <div className={styles.size_column}>
+                                                        <h2 className={styles.mobile_table_header_text}>Size</h2>
+                                                        <h2>{item.size}</h2>
+                                                    </div>
+                                                    <div className={styles.group_column}>
+                                                        <h2 className={styles.mobile_table_header_text}>Group</h2>
+                                                        <h2>{item.group}</h2>
+                                                    </div>
+                                                </div>
+                                                <div className={styles.card_row_two}>
+                                                    <div className={styles.price_column}>
+                                                        <h2 className={styles.mobile_table_header_text}>Price</h2>
+                                                        <h2>${item.pricePaid}</h2>
+                                                    </div>
+                                                    <div className={styles.mobile_actions_column}>
+                                                        <button className={styles.edit_button} onClick={() => {
+                                                            setItemID(item.id)
+                                                            setItemName(item.itemName)
+                                                            setPrice(item.pricePaid)
+                                                            setSize(item.size)
+                                                            setGroup(item.group)
+                                                            setEditModalOpen(true)
+                                                        }}><FiEdit /></button>
+                                                        <Modal ariaHideApp={false} isOpen={editModalOpen} onRequestClose={() => setEditModalOpen(false)} className={style.modal}>
+                                                            <div className={style.modal_content}>
+                                                                <form onSubmit={handleEditSubmit}>
+                                                                    <div>
+                                                                        <div onClick={() => setEditModalOpen(false)} className={style.close_icon}>
+                                                                            <FiX />
+                                                                        </div>
+                                                                        <div className={style.add_item}>
+                                                                            <a>Item Editer</a>
+                                                                        </div>
+                                                                    </div>
+                                                                    <a className={style.input_header}>PRODUCT NAME</a>
+                                                                    <input className={style.name_box} type="text" placeholder="Product name" onChange={saveItemName} value={itemName} required/>
+                                                                    <div className={style.input_grid}>
+                                                                        <div className={style.price_col}>
+                                                                            <a className={style.input_header}>PURCHASE PRICE</a>
+                                                                            <input type="number" step=".01" className={style.price_box} placeholder="Price" onChange={savePrice} value={price} required />
+                                                                        </div>
+                                                                        <div className={style.size_col}>
+                                                                            <a className={style.input_header}>SIZE</a>
+                                                                            <select className={style.size_box} onChange={saveSize} defaultValue="" value={size} required>
+                                                                                <option disabled={true} value="">Size</option>
+                                                                                <option onChange={saveSize}>N/A</option>
+                                                                                <option onChange={saveSize}>XS</option>
+                                                                                <option onChange={saveSize}>S</option>
+                                                                                <option onChange={saveSize}>M</option>
+                                                                                <option onChange={saveSize}>L</option>
+                                                                                <option onChange={saveSize}>XL</option>
+                                                                                <option onChange={saveSize}>XXL</option>
+                                                                                <option onChange={saveSize}>3.5</option>
+                                                                                <option onChange={saveSize}>4</option>
+                                                                                <option onChange={saveSize}>4.5</option>
+                                                                                <option onChange={saveSize}>5</option>
+                                                                                <option onChange={saveSize}>5.5</option>
+                                                                                <option onChange={saveSize}>6</option>
+                                                                                <option onChange={saveSize}>6.5</option>
+                                                                                <option onChange={saveSize}>7.5</option>
+                                                                                <option onChange={saveSize}>8</option>
+                                                                                <option onChange={saveSize}>8.5</option>
+                                                                                <option onChange={saveSize}>9</option>
+                                                                                <option onChange={saveSize}>9.5</option>
+                                                                                <option onChange={saveSize}>10</option>
+                                                                                <option onChange={saveSize}>10.5</option>
+                                                                                <option onChange={saveSize}>11</option>
+                                                                                <option onChange={saveSize}>11.5</option>
+                                                                                <option onChange={saveSize}>12</option>
+                                                                                <option onChange={saveSize}>12.5</option>
+                                                                                <option onChange={saveSize}>13</option>
+                                                                                <option onChange={saveSize}>13.5</option>
+                                                                                <option onChange={saveSize}>14</option>
+                                                                            </select>
+                                                                        </div>
+                                                                        <div className={style.group_col}>
+                                                                            <a className={style.input_header}>GROUP</a>
+                                                                            <select className={style.group_box} onChange={saveGroup} defaultValue="" value={group} required>
+                                                                                <option disabled={true} value="">Group</option>
+                                                                                <option onChange={saveGroup}>Sneakers</option>
+                                                                                <option onChange={saveGroup}>Streetwear</option>
+                                                                                <option onChange={saveGroup}>Electronics</option>
+                                                                                <option onChange={saveGroup}>Collectibles</option>
+                                                                                <option onChange={saveGroup}>Other</option>
+                                                                            </select>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div className={style.buttons}>
+                                                                        <button className={style.add_box} type="submit" >Edit</button>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                        </Modal>
+                                                        <button className={styles.delete_button} onClick={() => {
+                                                            firebase
+                                                                .firestore()
+                                                                .collection('items')
+                                                                .doc(item.id)
+                                                                .delete()
+                                                                .then(() => {
+                                                                    console.log(item.id)
+                                                                    window.location.reload();
+                                                                })
+                                                        }}><FiTrash /></button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    )
+                                }   
+                            })
+                        }
+                    </div>
+                </div>
+                {/* End mobile table */}
             </div>
         )
     }

@@ -4,9 +4,11 @@
     padding-top: 20px;
 }
 
+/* Desktop table */
 .table {
     margin-left: 80px;
     margin-right: 80px;
+    visibility: hidden;
 }
 
 .content_above_table {
@@ -105,6 +107,81 @@
     display: flex;
 }
 
+.edit_button {
+    background-color: #1d1f33;
+    border: none;
+    font-size: 20px;
+    color: #425382;
+}
+
+.edit_button:hover {
+    cursor: pointer;
+}
+
+.delete_button {
+    background-color: #1d1f33;
+    border: none;
+    font-size: 20px;
+    color: #ba5566;
+}
+
+.delete_button:hover {
+    cursor: pointer;
+}
+
+/* End desktop table */
+
+/* Mobile table */
+.mobile_table {
+    position: absolute;
+    width: 100%;
+    padding-left: 80px;
+    padding-right: 80px;
+    top: 520px;
+}
+
+.mobile_content_container {
+    height: 910px;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.mobile_table_contents {
+    display: flex;
+    flex-direction: column;
+    background-color: #1d1f33;
+    border-radius: 8px;
+    margin-top: 5px;
+    font-size: 16px;
+    margin-right: 7.5px;
+    padding: 16px;
+}
+
+.card_row_one {
+    display: flex;
+    font-size: 12px;
+    line-height: 16px;
+}
+
+.card_row_two {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    line-height: 16px;
+    margin-left: 3%;
+}
+
+.mobile_table_header_text {
+    color: rgb(230, 230, 230);
+    font-size: 18px;
+}
+
+.mobile_actions_column {
+    margin-top: 48px;
+}
+
+/* End mobile table */
+
 .add_button {
     background-color: #222139;
     border: 2px solid #27273b;
@@ -154,39 +231,6 @@
 
 .home_button:hover {
     border: 2px solid #5168a0;
-    cursor: pointer;
-}
-
-.sales_button {
-    background-color: #1d1f33;
-    border: none;
-    font-size: 20px;
-    color: #4cb85e;
-}
-
-.sales_button:hover {
-    cursor: pointer;
-}
-
-.edit_button {
-    background-color: #1d1f33;
-    border: none;
-    font-size: 20px;
-    color: #425382;
-}
-
-.edit_button:hover {
-    cursor: pointer;
-}
-
-.delete_button {
-    background-color: #1d1f33;
-    border: none;
-    font-size: 20px;
-    color: #ba5566;
-}
-
-.delete_button:hover {
     cursor: pointer;
 }
 
@@ -260,7 +304,6 @@
     position: absolute;
     right: 100px;
 }
-
 
 .inventory_icon {
     margin-top: 20px;
@@ -420,6 +463,14 @@
 }
 
 @media only screen and (min-width: 790px) {
+    .table {
+        visibility: visible;
+    }
+
+    .mobile_table {
+        visibility: hidden;
+    }
+
     .above_icon_container {
         position: relative;
         margin-left: 80px;
