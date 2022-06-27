@@ -50,7 +50,6 @@ export default function InventoryContents() {
     var collectiblesValue1 = 0;
     var otherValue1 = 0;
 
-
     useEffect(() => {
         firebase.firestore()
             .collection('items')
@@ -241,6 +240,7 @@ export default function InventoryContents() {
                                     </div>
                                 </div>
                                 <div className={styles.above_three}>
+                                    {/* Icon filtering based on active group */}
                                     <div className={styles.inventory_icon}>
                                         {(() => {
                                             if (activeGroup == "All Groups"){
@@ -281,6 +281,7 @@ export default function InventoryContents() {
                                             return null;
                                         })()}
                                     </div>
+                                    {/* Main display */}
                                     <div className={styles.group_display}>
                                         {(() => {
                                             if (activeGroup == "All Groups") {
@@ -388,11 +389,13 @@ export default function InventoryContents() {
                         {/* Utility buttons */}
                         <div className={styles.utility_bar}>
                             <input className={styles.search_bar} type="text" placeholder="Search products" onChange={saveSearch}/>
-                            <button onClick={() => setModalIsOpen(true)} className={styles.add_button}>+</button>
-                            <Link href="/">
-                                <a><button className={styles.home_button}><AiOutlineHome /></button></a>
-                            </Link>
-                            <button onClick={signOut} className={styles.signout_button}><VscSignOut /></button>
+                            <div>
+                                <button onClick={() => setModalIsOpen(true)} className={styles.add_button}>+</button>
+                                <Link href="/">
+                                    <a><button className={styles.home_button}><AiOutlineHome /></button></a>
+                                </Link>
+                                <button onClick={signOut} className={styles.signout_button}><VscSignOut /></button>
+                            </div>
                         </div>
                     </div>
 
@@ -467,7 +470,6 @@ export default function InventoryContents() {
                             </form>
                         </div>
                     </Modal>
-
                 </div>
 
                 {/* Item table */}

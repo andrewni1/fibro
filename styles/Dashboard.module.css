@@ -1,7 +1,7 @@
 .page {
     background-image: linear-gradient(to top, #161624, #161624, #161724, #171725, #171725, #181827, #181928, #191a2a, #1b1c2d, #1d1e31, #1f2034, #212238);
     min-height: 100vh;
-    padding-top: 20px;
+    padding-top: 10px;
 }
 
 /* Desktop table */
@@ -182,6 +182,31 @@
 
 /* End mobile table */
 
+/* Utility bar */
+.utility_bar {
+    display: flex;
+}
+
+.search_bar {
+    height: 55px;
+    border: 2px solid #27273b;
+    background-color: #171725;
+    color: #27273b;
+    font-size: 14px;
+    font-weight: 550;
+    padding-left: 20px;
+    border-radius: 5px;
+    margin-right: 15px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+.search_bar:focus {
+    outline: none !important;
+    border: 2px solid #5168a0;
+    color: #666c9c;
+}
+
 .add_button {
     background-color: #222139;
     border: 2px solid #27273b;
@@ -352,31 +377,6 @@
     margin-left: 35px;
 }
 
-.search_bar {
-    height: 55px;
-    border: 2px solid #27273b;
-    background-color: #171725;
-    color: #27273b;
-    font-size: 14px;
-    font-weight: 550;
-    padding-left: 20px;
-    border-radius: 5px;
-    margin-right: 15px;
-    margin-bottom: 10px;
-    margin-top: 20px;
-}
-
-.search_bar:focus {
-    outline: none !important;
-    border: 2px solid #5168a0;
-    color: #666c9c;
-}
-
-.utility_bar {
-    display: flex;
-    align-items: center;
-}
-
 .sneakers_icon {
     color: #6B9FFF;
 }
@@ -397,6 +397,86 @@
     color: #6B9FFF;
 }
 
+@media only screen and (max-width: 460px) {
+    .mobile_table_contents {
+        margin-right: 7.5px;
+        padding: 10px;
+    }
+
+    .mobile_table {
+        top: 550px;
+        margin-left: 0px;
+    }
+    
+    .content_above_table {
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+
+    .above_icon_container {
+        width: 300px;
+        height: 100px;
+        left: -105px;
+        right: 0;
+    }
+
+    .group_button {
+        width: 80px;
+        height: 40px;
+        margin-top: 10px;
+        margin-left: 10px;
+    }
+
+    .button_contents {
+        font-size: 14px;
+        display: flex;
+    }
+    
+    .inventory_icon {
+        height: 90px;
+        width: 90px;
+        padding-top: 16px;
+        font-size: 48px;
+    }
+
+    .above_two_title {
+        font-size: 20px;
+    }
+    
+    .above_two_desc {
+        font-size: 14px;
+    }
+
+    .group_title {
+        font-size: 20px;
+    }
+    
+    .group_desc {
+        font-size: 14px;
+    }
+
+    .group_icon {
+        margin-left: 6px;
+    }
+    
+    .group_number {
+        margin-left: 25px;
+    }
+
+    .utility_bar {
+        margin-top: 200px;  
+    }
+}
+
+@media only screen and (min-width: 461px) {
+    .utility_bar {
+        margin-top: 230px;  
+    }
+
+    .mobile_table {
+        top: 585px;
+    }
+}
 
 @media only screen and (max-width: 599px) {
     .above_icon_container {
@@ -421,11 +501,8 @@
         border-right: none;
     }
 
-    .utility_bar {
-        margin-top: 230px;
-    }
-
     .search_bar {
+        margin-top: 20px;
         width: 250px;
     }
 }
@@ -461,6 +538,24 @@
         width: 350px;
     }
 }
+
+/* Solely for utility bar */
+@media only screen and (max-width: 700px) {
+    .utility_bar {
+        flex-direction: column;
+    }
+
+    .search_bar {
+        width: 97%;
+    }
+}
+
+@media only screen and (min-width: 701px) {
+    .utility_bar {
+        align-items: center;
+    }
+}
+/* End for utility bar */
 
 @media only screen and (min-width: 790px) {
     .table {
