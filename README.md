@@ -15,7 +15,7 @@ This is where the user will create an account or sign in. Upon successful sign u
 
 Once a user is signed in and authenticated they will be able to use the dashboard where the user will be able to create, edit, and delete products. The page also displays the value of the user's whole inventory and also allows the user to sort by group, allowing products with the specified group to only be displayed.
 
-![dashboard](https://user-images.githubusercontent.com/70303734/130323563-226e714e-dedb-40cb-93c8-bfcd3476d9a4.png)
+![fibronewhome](https://user-images.githubusercontent.com/70303734/175930467-3494e99c-51c5-48cd-bfe0-fa11241dc944.png)
 
 ## Add Product
 
