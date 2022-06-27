@@ -31,7 +31,7 @@ export default function Home() {
                             </Link>
                         </div>
                         <div className={styles.col_two}>
-                            <img className={styles.table_pic} src="/fibropic.png" alt="inventory-table"/>
+                            <img className={styles.table_pic} src="/fibross.png" alt="inventory-table"/>
                         </div>
                     </div>
                     <div className={styles.feature_container_one}>
