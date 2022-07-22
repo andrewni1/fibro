@@ -561,6 +561,7 @@
 
     .mobile_table {
         visibility: hidden;
+        top: 200px;
     }
 
     .above_icon_container {
